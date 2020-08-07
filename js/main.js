@@ -28,6 +28,8 @@
 // 7. set div for total
 // 8. set div for bet input field
 // 9. set div for prev numbers
+//  9a. set div so player can see where each chip is on board neatly written out
+//      $20:13, $20:2:1(second row or by color) etc
 
 // 10. set id for each section of square board
 // 11. set classes for colors of the wheel(or ids for each piece?)
@@ -41,9 +43,16 @@
 /*------------CSS Pseudocode----------*/
 //  1. the board:: 39squares (1-36 + 2:1 section) + 9 boxes (evens/colors/groups of 12/18) + the 0 box
 //  2. the wheel:: 37 sections
-//  3. the chips
-//  4. the buttons
-
+//  3. the chips:: colorful, rainbow or random color chips ?
+//  4. the buttons:: very colorful
+//  5. player cash div should be rainbow and call them rainbucks
+//  6. div so player can see how much is currently out in play on each number
+//  #. column of winning numbers displayed on one side of screen
+//  7. Mobile responsive!!
+//    7a. column of winning numbers becomes a row
+//    7b. wheel and board must now be stacked somehow
+//  8. Choose persona at beginning of game
+//  9. **use Asset Google Font for lettering. hope it looks good in colors
 
 
 /*------------JS Pseudocode---------*/
@@ -79,12 +88,18 @@
 //           --ask player what charachter they want to be
 //           --player has $1000
 //           --wheel is still/flat colored
+//           --tooltip pop up with odds for groups of squares/boxes
         /*---RENDER---*/
 //          ➣set min/max betting opportunities
 //              -must play one number to play number sections
 //              -must play even/odd or red/black if not playing number
 //              -must make minimum bet if only playing evens or colors
-//              --what is minimum bet? $100? $10 or $20 chips
+//   rewrite this area           --what is minimum bet? $100? $10 or $20 chips
+//                  --function for determining if enough chips have been placed
+//              --how to deal with multiple chips on one spot
+//              --how to deal with rules of betting
+//              --must make minimum bet on black/red even/odd
+//If you play the outside, you must have $10 on the outside. It can be $5 on black and $5 on odd, or $10 on red, etc., but your total inside bet must be the table min. And your total outside bet must be the table min.
 //          ➣()()()was the minimum reached? if not, no spin
 //          ➣code must take in what squares/boxes have been selected and hold this info to compare to winning number
 //          ➣set transform-function color rotation effect for wheel 
@@ -94,7 +109,8 @@
 //               --the wheel spin
 //          --set time for how long spin takes
 //          --randomly pic number 0-36(could be 37 to include 00)
-//          --push prev numbers to list visible 
+//          --clearly flash the winning number
+//          --push prev winning numbers to a visible list 
 //          --determine winners
 //              -if random number, is winner
 //              -if random number was even/odd and even/odd was played
@@ -110,6 +126,7 @@
 //              background flashing
 //              wheel flashing
 //              board flashing(may be stretch goal)
+//              this needs a timeOut function!!
 
 ➣
 
@@ -128,18 +145,17 @@
 //stretch goals::
 //      be able to click on the player name and get his background story
 //      have robot avatars as the characters
-//      tooltip on each square giving odds
 //      hover over sections/squares highlights those areas (hover over red highlights all red, hover over one number highlights that number)
 //      add double zero
-//      allow the player to change the bet
+//      allow the player to change the chip amount
 //      allow the player to change the color of chips
 //      add ability to bet on 3rds of number board
 //      add ability to bet high number(1-18)/low number(19-36)
 //      make pieces of the number board light up as well as the wheel
 //      see the ball spin around the wheel
 //      make the wheel spin      https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
-
-
+//      make the cash colorful, maybe change color somehow?? $rainbucks$
+//      see the robot croupier!
 
 
 
@@ -196,3 +212,15 @@
 // Experiment and refactor code as necessary
 
 // Have fun!
+
+
+
+
+
+
+
+/*-------PRESENTATION---------*/
+//BE PREPARED TO FORCE A WINNING NUMBER TO GET RAVE MODE
+//what is your favorite function??
+//biggest challenge
+//key learning/takeaways?
