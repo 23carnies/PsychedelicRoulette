@@ -35,12 +35,18 @@ My husband introduced me to roulette on a vacation years ago. I fell in love wit
 
 
 ### Wireframes:
+
+_My first handrawn wireframe of the board_
 ![Hand drawn wireframe of board and wheel](https://i.imgur.com/nrSXwz2.jpg)
 
+_Close-up of the number board and payouts_
 ![Hand drawn wireframe of the board](https://i.imgur.com/j4M28Dh.jpg)
 
-`initial wireframe goes here`*******
+_Wireframe of Desktop View_
+![Dekstop View Wirefram](https://i.imgur.com/JWKZORi.jpg)
 
+_Wirefram of Mobile View_
+![Mobile View Wireframe](https://i.imgur.com/3pP5FBS.jpg)
 ### How to Play Psychedelic Roulette:
 1. Player is given $1000 in $20 chips.
 2. Player must play $100 per spin.

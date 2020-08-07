@@ -37,7 +37,6 @@
 
 // set transform-function rotate for wheel 
 //     --oh the math here
-//     https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
 
 
 /*------------CSS Pseudocode----------*/
@@ -91,16 +90,12 @@
 //           --tooltip pop up with odds for groups of squares/boxes
         /*---RENDER---*/
 //          ➣set min/max betting opportunities
-//              -must play one number to play number sections
-//              -must play even/odd or red/black if not playing number
-//              -must make minimum bet if only playing evens or colors
-//   rewrite this area           --what is minimum bet? $100? $10 or $20 chips
+//              -must make minimum bet on inside of board (numbers)
+//              -must make minimum bet on outside of board (other squares/boxes)
+//              -minimum bet inside or outside is $100
 //                  --function for determining if enough chips have been placed
-//              --how to deal with multiple chips on one spot
-//              --how to deal with rules of betting
-//              --must make minimum bet on black/red even/odd
-//If you play the outside, you must have $10 on the outside. It can be $5 on black and $5 on odd, or $10 on red, etc., but your total inside bet must be the table min. And your total outside bet must be the table min.
-//          ➣()()()was the minimum reached? if not, no spin
+//                   ➣()()()was the minimum reached? if not, no spin
+//              --how to deal with multiple chips on one spot-visually no change probably but will see total bets in their div
 //          ➣code must take in what squares/boxes have been selected and hold this info to compare to winning number
 //          ➣set transform-function color rotation effect for wheel 
 //               --oh the math here
@@ -118,24 +113,27 @@
 //              -if number was in 1st, 2nd, or 3rd 12s and that box was played
 //              -if number was in first or last 18 and that box was played
 //          --mark winning number
-//          --winner/payouts:
+//          --winner/payouts--this is total player $ + the payout
 //              Number 35:1
-//              1st/2nd/3rd 12 sets 2:1
-//              Odd/Even, Red/Black, 1to18, 19to36, column dozens all 1:1
+//              1st/2nd/3rd 12 sets, column dozens all 2:1
+//              Odd/Even, Red/Black, 1to18, 19to36 all 1:1
 //          --rave mode for hitting the number
 //              background flashing
 //              wheel flashing
 //              board flashing(may be stretch goal)
 //              this needs a timeOut function!!
+//              trigger warning for accessibility
+//              vegas music playing
 
-➣
 
 
 //6. Special Extras
-// add voice of croupier Place your bets!, No more bets! number call outerHeight
+// add voice of croupier Place your bets!, No more bets! number call out
 // add ticking sound of ball rolling
 // add clicking sound of chips being placed on board (in event listener function)
+// sounds will need delays
 // flashing colors to make wheel appear to spin
+// how to make flashing: maybe the piece gets a tiny bit bigger?
 // rave mode for hitting the number
 // flashing dollar signs/other currencty on screen for hitting odd/even or red/black (in other colors)
 
@@ -224,3 +222,15 @@
 //what is your favorite function??
 //biggest challenge
 //key learning/takeaways?
+
+
+
+
+// Friday EOD: Repo set up, JS/CSS/HTML files linked, display a title, etc. in the browser to test README file mostly done (need deployment link, final screenshots)
+// Weekend: Scaffold sections in the app, work on getting as MUCH done as possible over the weekend! The farther you get over the weekend, the better next week will go for you!
+// Monday AM: You should have the basics for your app set up. You should have cached element references defined, event listeners configured and tested (console.log!!!), and basic control flow implemented.
+// Monday EOD: Your control flow sections of code should all be organized properly and you should have at least started the basics of coding out the app’s functionality
+// Tuesday EOD: Your app should be mostly working, a few bugs left to fix.
+// Wednesday EOD: Your app should be 90-100% functional, with just styling left.
+// Thursday EOD: Your app is beautiful because you spent the whole day styling it.
+// Friday: Profit.
