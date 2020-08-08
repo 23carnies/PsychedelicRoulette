@@ -1,3 +1,21 @@
+/*-------------Constants-------------*/
+
+
+
+/*-------------State Variables-------------*/
+let playerTotal, theBet, previousNums = [];
+
+
+
+/*-------------Cached Refernce Elements-------------*/
+const insideBetsBox = document.getElementById('insideBets');
+const outsideBetsBox = document.getElementById('outsideBets');
+
+
+/*-------------Event Listeners-------------*/
+
+
+/*-------------Functions-------------*/
 
 
 
