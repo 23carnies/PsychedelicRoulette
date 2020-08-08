@@ -18,20 +18,20 @@
 
 
 /*      Pseudocode      */
-// 1. set html, css, js basics
-// 2. set css numbers board
+// 1. ✅set html, css, js basics
+// 2. ✅set css numbers board
 // 3. set css circle for spinner
 //        multi colored wheel with numbers
-// 4. set play button
-// 5. set spin button
+// 4. set play button  needed??
+// 5. ✅set spin button
 // 6. set div for number to be appended to  
-// 7. set div for total
-// 8. set div for bet input field
-// 9. set div for prev numbers
-//  9a. set div so player can see where each chip is on board neatly written out
+// 7. ✅set div for total
+// 8. ✅set div for bet input field
+// 9. ✅set div for prev numbers
+//  9a. ✅set div so player can see where each chip is on board neatly written out    NEEDED??
 //      $20:13, $20:2:1(second row or by color) etc
 
-// 10. set id for each section of square board
+// 10. ✅set id for each section of square board
 // 11. set classes for colors of the wheel(or ids for each piece?)
 // 12. add event listener to wheel targeting id 
 
@@ -40,7 +40,7 @@
 
 
 /*------------CSS Pseudocode----------*/
-//  1. the board:: 39squares (1-36 + 2:1 section) + 9 boxes (evens/colors/groups of 12/18) + the 0 box
+//  1. ✅the board:: 39squares (1-36 + 2:1 section) + 9 boxes (evens/colors/groups of 12/18) + the 0 box
 //  2. the wheel:: 37 sections
 //  3. the chips:: colorful, rainbow or random color chips ?
 //  4. the buttons:: very colorful
@@ -136,6 +136,7 @@
 // how to make flashing: maybe the piece gets a tiny bit bigger?
 // rave mode for hitting the number
 // flashing dollar signs/other currencty on screen for hitting odd/even or red/black (in other colors)
+// Landing page
 
 
 

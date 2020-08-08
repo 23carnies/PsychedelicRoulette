@@ -1,14 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychedelic Roulette</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/main.js"></script>
 </head>
+
 <body>
-    
+    <h1>Psychedelic Roulette</h1>
+    <article>
+        <div id="wheel">
+            <div class="spoke" id="sp0">0</div>
+            <div class="spoke" id="spoke32">32</div>
+            <div class="spoke" id="spoke15">15</div>
+            <div class="spoke" id="spoke19">19</div>
+            <div class="spoke" id="spoke4">4</div>
+            <div class="spoke" id="spoke21">21</div>
+            <div class="spoke" id="spoke2">2</div>
+            <div class="spoke" id="spoke25">25</div>
+            <div class="spoke" id="spoke17">17</div>
+            <div class="spoke" id="spoke34">34</div>
+            <div class="spoke" id="spoke6">6</div>
+            <div class="spoke" id="spoke27">27</div>
+            <div class="spoke" id="spoke13">13</div>
+            <div class="spoke" id="spoke36">36</div>
+            <div class="spoke" id="spoke11">11</div>
+            <div class="spoke" id="spoke30">30</div>
+            <div class="spoke" id="spoke8">8</div>
+            <div class="spoke" id="spoke23">23</div>
+            <div class="spoke" id="spoke10">10</div>
+            <div class="spoke" id="spoke5">5</div>
+            <div class="spoke" id="spoke24">24</div>
+            <div class="spoke" id="spoke16">16</div>
+            <div class="spoke" id="spoke33">33</div>
+            <div class="spoke" id="spoke1">1</div>
+            <div class="spoke" id="spoke20">20</div>
+            <div class="spoke" id="spoke14">14</div>
+            <div class="spoke" id="spoke31">31</div>
+            <div class="spoke" id="spoke9">9</div>
+            <div class="spoke" id="spoke22">22</div>
+            <div class="spoke" id="spoke18">18</div>
+            <div class="spoke" id="spoke29">29</div>
+            <div class="spoke" id="spoke7">7</div>
+            <div class="spoke" id="spoke28">28</div>
+            <div class="spoke" id="spoke12">12</div>
+            <div class="spoke" id="spoke35">35</div>
+            <div class="spoke" id="spokespoke3">3</div>
+            <div class="spoke" id="spoke26">26</div>
+        </div>
+        <button id="spin" class="btn btn-primary">SPIN</button>
+        <div id="total">Total $</div>
+        <div id="betAmt"></div>
+        <div id="numBoard">
+            <div id="insideBets">
+                <div id="sq0">0</div>
+                <div class="square neon-green" id="sq1">1</div>
+                <div class="square neon-orange" id="sq2">2</div>
+                <div class="square neon-green" id="sq3">3</div>
+                <div class="square neon-orange" id="sq4">4</div>
+                <div class="square neon-green" id="sq5">5</div>
+                <div class="square neon-orange" id="sq6">6</div>
+                <div class="square neon-green" id="sq7">7</div>
+                <div class="square neon-orange" id="sq8">8</div>
+                <div class="square neon-green" id="sq9">9</div>
+                <div class="square neon-orange" id="sq10">10</div>
+                <div class="square neon-orange" id="sq11">11</div>
+                <div class="square neon-green" id="sq12">12</div>
+                <div class="square neon-orange" id="sq13">13</div>
+                <div class="square neon-orange" id="sq14">14</div>
+                <div class="square neon-orange" id="sq15">15</div>
+                <div class="square neon-green" id="sq16">16</div>
+                <div class="square neon-orange" id="sq17">17</div>
+                <div class="square neon-green" id="sq18">18</div>
+                <div class="square neon-green" id="sq19">19</div>
+                <div class="square neon-orange" id="sq20">20</div>
+                <div class="square neon-green" id="sq21">21</div>
+                <div class="square neon-orange" id="sq22">22</div>
+                <div class="square neon-orange" id="sq23">23</div>
+                <div class="square neon-orange" id="sq24">24</div>
+                <div class="square neon-green" id="sq25">25</div>
+                <div class="square neon-orange" id="sq26">26</div>
+                <div class="square neon-green" id="sq27">27</div>
+                <div class="square neon-orange" id="sq28">28</div>
+                <div class="square neon-orange" id="sq29">29</div>
+                <div class="square neon-green" id="sq30">30</div>
+                <div class="square neon-orange" id="sq31">31</div>
+                <div class="square neon-green" id="sq32">32</div>
+                <div class="square neon-orange" id="sq33">33</div>
+                <div class="square neon-green" id="sq34">34</div>
+                <div class="square neon-orange" id="sq35">35</div>
+                <div class="square neon-green" id="sq36">36</div>
+                <div class="square neon-cyan" id="sq37">2:1</div>
+                <div class="square neon-cyan" id="sq38">2:1</div>
+                <div class="square neon-cyan" id="sq39">2:1</div>
+            </div>
+            <div id="outsideBets">
+                <div class="square" id="space"></div>
+                <div class="outsideRec neon-pink" id="first12">1st 12</div>
+                <div class="outsideRec neon-yellow" id="sec12">2nd 12</div>
+                <div class="outsideRec neon-pink" id="third12">3rd 12</div>
+                <div class="square" id="space"></div>
+                <div class="square" id="space"></div>
+                <div class="outsideSq neon-yellow" id="to18">1 to 18</div>
+                <div class="outsideSq neon-pink" id="even">EVEN</div>
+                <div class="outsideSq neon-orange" id="orange">ORANGE</div>
+                <div class="outsideSq neon-green" id="green">GREEN</div>
+                <div class="outsideSq neon-pink" id="odd">ODD</div>
+                <div class="outsideSq neon-yellow" id="to36">19 to 36</div>
+                <div class="square" id="space"></div>
+            </div>
+        </div>
+        <div id="prevNumbers"></div>
+        <div id="numsInPlay"></div>
+    </article>
+
+
+
+
 </body>
+
 </html>

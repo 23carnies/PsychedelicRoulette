@@ -1,3 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: red;
+    background-color: rgb(61, 58, 58);
+    /* max-width: 1000px; */
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+article {
+    max-width: 1000px;
+    /* display: flex;
+    justify-content: space-evenly;
+    align-items: center; */
+    display: grid;
+    height: 100vh;
+    margin: 0 auto;
+    /* text-align: center; */
+    grid-template-columns: auto;
+    grid-template-rows: 2fr;
+}
+
+#wheel {
+    position: relative;
+    border: 5px solid black;
+    border-radius: 50%;
+    background-color: aquamarine;
+    width: 400px;
+    height: 400px;
+
+}
+
+#sp0 {
+    
+    border-top: 40px blue;
+    border-left: 20px blue;
+    border-right: 20px blue;
+    border-radius: 50%; 
+   
+}
+
+.spoke {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Betting Board Begins */
+#numBoard {
+    display: flex;
+    flex-flow: row wrap;
+    /* display: grid;
+    grid-template-columns: 40px auto 40px;
+    grid-template-rows: 120px 80px; */
+    background-color: transparent;
+    width: 585px;
+    height: 210px;
+}
+#sq0 {
+    height: 120px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-90deg);
+    background-color: #9D00FF;
+}
+
+#insideBets {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-flow: column-reverse wrap;
+    width: 500px;
+    height: 120px;
+    grid-column: 2/span 1;
+    grid-row: 0/span 1;
+}
+
+.square {
+    /*flex is to center the numbers here*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    transform: rotate(-90deg);
+}
+
+.neon-green {
+    background-color: #00FF00;
+}
+
+.neon-orange {
+    background-color: #FF6600;
+}
+
+.neon-cyan {
+    background-color: #00FFFF;
+}
+
+.neon-pink {
+    background-color: #FF00FF;
+}
+
+.neon-yellow {
+    background-color: #FFFF00;
+}
+
+#outsideBets {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 585px;
+    height: 80;
+}
+
+.outsideRec {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 160px;
+    height: 40px;
+}
+
+.outsideSq {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 80px;
+    height: 40px;
+}
+
+#space {
+    border: none;
+    background-color: transparent;
+}
+
+/* Betting Board Ends */
+
+
+
+/* Previous Numbers */
+#prevNumbers {
+    height: 300px;
+    width: 40px;
+    background-color: coral;
+}
+
+/* Numbers in Play */
+#numsInPlay {
+    width: 200px;
+    height: 100px;
+    background-color: chartreuse;
+}
+
+/* BUTTONS */
+#spin {
+    width: 100px;
 }

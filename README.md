@@ -97,3 +97,5 @@ Alex  the cat - It's a cat, you know you want to be the cat
 ### Credits:
 
 Mike Perkins:: Writing user stories; overall support
+
+A huge thanks to David Gilbertson for an awesome ELI5 on the maths of a circle [here](https://medium.com/hackernoon/a-simple-pie-chart-in-svg-dbdd653b6936).
