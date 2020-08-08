@@ -13,9 +13,14 @@ const outsideBetsBox = document.getElementById('outsideBets');
 
 
 /*-------------Event Listeners-------------*/
-
+insideBetsBox.addEventListener('click', handleInsideBetsClick);
 
 /*-------------Functions-------------*/
+function handleInsideBetsClick(e){
+    let squareIndex =parseInt(e.target.id.replace('sq', ''));
+    console.log(squareIndex);
+    return squareIndex;
+}
 
 
 
