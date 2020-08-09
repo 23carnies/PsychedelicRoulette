@@ -14,6 +14,7 @@ const outsideBetsBox = document.getElementById('outsideBets');
 
 /*-------------Event Listeners-------------*/
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
+outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 
 /*-------------Functions-------------*/
 function handleInsideBetsClick(e){
@@ -21,7 +22,18 @@ function handleInsideBetsClick(e){
     console.log(squareIndex);
     return squareIndex;
 }
+function handleOutsideBetsClick(e){
 
+}
+
+function init(){
+    playerTotal = 1000;
+    //clear board
+}
+
+function getWinningNumber() {
+    let winner = (Math.floor(Math.random()*37));
+}
 
 
 
