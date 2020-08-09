@@ -26,7 +26,7 @@ const outsideBetsBox = document.getElementById('outsideBets');
 
 /*-------------Event Listeners-------------*/
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
-insideBetsBox.addEventListener('click', getInsideIdFromClick);
+insideBetsBox.addEventListener('click', placeInsideBetChips);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 
 /*-------------Functions-------------*/
@@ -38,7 +38,7 @@ function init(){
 
 function handleInsideBetsClick(e){
     let squareIndex = parseInt(e.target.id.replace('sq', ''));
-    console.log(squareIndex);
+    // console.log(squareIndex);
     playerInsideBets.push(squareIndex);
     return squareIndex;
 }
@@ -49,10 +49,20 @@ function handleOutsideBetsClick(e){
     return recIndex;
 }
 
-function getInsideIdFromClick(e){
+function placeInsideBetChips(e){
     let insideId = e.target.getAttribute('id');
-    console.log(`i am the ${insideId}`);
+    let chip = document.createElement('div');
+    let chipText = document.createTextNode('50');
+    chip.appendChild(chipText);
+    chip.className = 'chip'
+    document.getElementById(insideId).appendChild(chip);
+    console.log(insideId)
+    return ;
 }
+
+
+
+
 
 function getWinningNumber() {
     let winner = (Math.floor(Math.random()*37));
