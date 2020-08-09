@@ -6,8 +6,8 @@
 
 body {
     background-color: rgb(61, 58, 58);
-    /* max-width: 1000px; */
-    
+    height: 100vh;  
+    margin: 0 auto;  
 }
 
 h1 {
@@ -16,41 +16,121 @@ h1 {
 
 article {
     max-width: 1000px;
-    /* display: flex;
-    justify-content: space-evenly;
-    align-items: center; */
-    display: grid;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;
+    /* display: grid; */
     height: 100vh;
     margin: 0 auto;
     /* text-align: center; */
-    grid-template-columns: auto;
-    grid-template-rows: 2fr;
+    /* grid-template-columns: auto;
+    grid-template-rows: 2fr; */
 }
-
+/*  ROULETTE WHEEL SECTION BEGINS   */
 #wheel {
     position: relative;
-    border: 5px solid black;
+    border: 15px solid #9900FF;
     border-radius: 50%;
-    background-color: aquamarine;
+    background-color: black;
+    overflow: hidden;
     width: 400px;
     height: 400px;
 
 }
 
-#sp0 {
-    
-    border-top: 40px blue;
-    border-left: 20px blue;
-    border-right: 20px blue;
-    border-radius: 50%; 
-   
+#sp0 { 
+    top: 0;
+    left: 0;
+    background-color: cornflowerblue;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
 }
+#spoke32 {
+    top: 0;
+    left: 25%;
+    background-color: chartreuse;
+    clip-path: polygon(100% 0, 0 0, 0100%);
+}
+#spoke15 {
+    top: 0;
+    left: 25%;
+    background-color: #FF0099;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+#spoke19 {
+    top: 25%;
+    left: 25%;
+    background-color: chartreuse;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+#spoke4 {
+    top: 25%;
+    left: 25%;
+    background-color: #FF0099;
+    clip-path: polygon(100% 100%, 00, 0 100%);
+}
+#spoke21 {
+    top: 50%;
+    left: 50%;
+    background-color:chartreuse;
+    clip-path: polygon(100% 100%, 100% 0, 0 100%);
+}
+#spoke2 {
+    top: 50%;
+    left: 50%;
+    background-color: #FF0099;
+    clip-path: polygon(0 100%, 100% 0, 0 0);
+}
+#spoke25 {
+    top: 50%;
+    left: 0;
+    background-color: chartreuse;
+    clip-path: polygon(0 100%, 100% 100%, 0 0);
+}
+#spoke17 {
+    top: 50%;
+    left: 0;
+    background-color: #FF0099;
+}
+#spoke34 {
+    top: 25%;
+    left: 0;
+    background-color: chartreuse;
+}
+#spoke6 {
+    top: 25%;
+    left: 0;
+    background-color: #FF0099;
+
+}
+#spoke27 {
+    background-color: chartreuse;
+
+}
+#spoke13{
+    background-color: #FF0099;
+
+}
+#spoke26 {
+    background-color: chartreuse;
+
+
+}
+#spoke11 {
+    background-color: #FF0099;
+
+}
+#spoke30 {
+    background-color: chartreuse;
+
+}
+
 
 .spoke {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    
+    position: absolute;
+    width: 50%;
+    height: 50%;    
 }
 
 /* Betting Board Begins */
@@ -64,15 +144,6 @@ article {
     width: 585px;
     height: 210px;
 }
-#sq0 {
-    height: 120px;
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotate(-90deg);
-    background-color: #9D00FF;
-}
 
 #insideBets {
     display: flex;
@@ -83,6 +154,19 @@ article {
     height: 120px;
     grid-column: 2/span 1;
     grid-row: 0/span 1;
+}
+#sq0 {
+    height: 120px;
+    width: 40px;
+    border-radius: 50px 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9D00FF;
+}
+
+#sq0 > p {
+    transform:rotate(-90deg)
 }
 
 .square {
@@ -171,4 +255,33 @@ article {
 /* BUTTONS */
 #spin {
     width: 100px;
+    margin: 50px;
+    padding: 18px;
+    border: 2px ridge white;
+    border-radius: 15px;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(84,253,29,0.9374124649859944) 63%, rgba(252,138,69,1) 100%);
+    box-shadow: 2px 2px 4px rgb(125, 248, 2);
+
+}
+
+@media only screen and (max-width: 400px) {
+    * {
+        max-width: 85%;
+    }
+}
+
+.chip {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid rgb(54, 13, 21);
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    box-shadow: -2px 2px crimson;
+
 }
