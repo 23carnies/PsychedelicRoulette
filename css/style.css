@@ -17,7 +17,8 @@ h1 {
     margin-top: 3%;
     margin-bottom: 2%;
     /* color: rgb(232,4,22); */
-    background: linear-gradient(90deg, rgba(232,4,22,1) 6%, rgba(29,253,226,0.9374124649859944) 50%, rgba(252,248,13,1) 100%);
+    background: transparent;
+    color: linear-gradient(90deg, rgba(232,4,22,1) 6%, rgba(29,253,226,0.9374124649859944) 50%, rgba(252,248,13,1) 100%);
 }
 
 article {
@@ -243,19 +244,48 @@ article {
 /* Betting Board Ends */
 
 
-
-/* Previous Numbers */
-#prevNumbers {
-    height: 300px;
-    width: 40px;
-    background-color: coral;
+/* Winning Number */
+.winningNumber {
+    width: 200px;
+    height: 200px;
+    background: transparent;
+    color: radial-gradient(circle, rgba(238,174,228,1) 0%, rgba(20,38,142,0.76590) 100%);
+    color: rgb(9, 121, 173);
+    font-family: 'Asset', cursive;
+    font-size: 100px;
 }
 
-/* Numbers in Play */
-#numsInPlay {
-    width: 200px;
-    height: 100px;
-    background-color: chartreuse;
+
+
+/* Current Bets, Previous Numbers and Total */
+#currentBets {
+    width: 400px;
+    justify-content: center;
+    margin: 10px;
+}
+
+#total {
+    width: 150px;
+    padding-left: 10px;
+    font-size: 25px;
+    align-items: center;
+}
+
+#prevNumbers {
+    height: 40px;
+    width: 300px;
+    justify-content: center;
+    margin: 10px;
+}
+
+#total, #currentBets, #prevNumbers {
+    display: flex;
+    height: 75px;
+    font-weight: 700;
+    border-radius: 15px;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(84,253,29,0.9374124649859944) 63%, rgba(252,138,69,1) 100%);
+    box-shadow: 2px 2px 4px rgb(125, 248, 2);
 }
 
 /* BUTTONS */
@@ -293,22 +323,3 @@ article {
 
 }
 
-.winningNumber {
-    background: rgb(238,174,228);
-    background: radial-gradient(circle, rgba(238,174,228,1) 0%, rgba(20,38,142,0.76590) 100%);
-    font-family: 'Asset', cursive;
-    font-size: 100px;
-}
-
-#total {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    font-size: 25px;
-    font-weight: 700;
-    width: 200px;
-    height: 100px;
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(84,253,29,0.9374124649859944) 63%, rgba(252,138,69,1) 100%);
-    box-shadow: 2px 2px 4px rgb(125, 248, 2);
-}
