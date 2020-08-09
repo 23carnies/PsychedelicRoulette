@@ -26,9 +26,16 @@ const outsideBetsBox = document.getElementById('outsideBets');
 
 /*-------------Event Listeners-------------*/
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
+insideBetsBox.addEventListener('click', getInsideIdFromClick);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 
 /*-------------Functions-------------*/
+function init(){
+    playerTotal = 1000;
+    playerNumber = [];
+    //clear board
+}
+
 function handleInsideBetsClick(e){
     let squareIndex = parseInt(e.target.id.replace('sq', ''));
     console.log(squareIndex);
@@ -42,10 +49,9 @@ function handleOutsideBetsClick(e){
     return recIndex;
 }
 
-function init(){
-    playerTotal = 1000;
-    playerNumber = [];
-    //clear board
+function getInsideIdFromClick(e){
+    let insideId = e.target.getAttribute('id');
+    console.log(`i am the ${insideId}`);
 }
 
 function getWinningNumber() {
