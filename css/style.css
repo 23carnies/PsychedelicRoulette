@@ -43,6 +43,7 @@ article {
     overflow: hidden;
     width: 400px;
     height: 400px;
+    box-shadow: 2px 2px 4px rgb(125, 248, 2);
 
 }
 
@@ -259,12 +260,16 @@ article {
 
 /* Current Bets, Previous Numbers and Total */
 #currentBets {
+    display: flex;
+    height: 75px;
     width: 400px;
     justify-content: center;
     margin: 10px;
 }
 
 #total {
+    display: flex;
+    height: 75px;
     width: 150px;
     padding-left: 10px;
     font-size: 25px;
@@ -272,15 +277,15 @@ article {
 }
 
 #prevNumbers {
-    height: 40px;
+    display: flex;
+    height: 75px;
     width: 300px;
     justify-content: center;
     margin: 10px;
 }
 
-#total, #currentBets, #prevNumbers {
-    display: flex;
-    height: 75px;
+.displayNums {
+    
     font-weight: 700;
     border-radius: 15px;
     background: rgb(131,58,180);

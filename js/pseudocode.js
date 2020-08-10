@@ -2,8 +2,8 @@
 //      how many places can you play at once
 //      how to split circle into 37 pieces in css
 //      how to light up circle in iteration (one section after the other)
-//      how to add chip to place on board
-//      how to write a game readme
+//     ✅ how to add chip to place on board
+//     ✅ how to write a game readme
 //      enter name of player or get to pick from a character
 
 
@@ -43,10 +43,10 @@
 //  1. ✅the board:: 39squares (1-36 + 2:1 section) + 9 boxes (evens/colors/groups of 12/18) + the 0 box
 //  2. the wheel:: 37 sections
 //  3. ✅the chips:: colorful, rainbow or random color chips ?
-//  4. the buttons:: very colorful
+//  4. ✅the buttons:: very colorful
 //  5. player cash div should be rainbow and call them rainbucks
-//  6. div so player can see how much is currently out in play on each number
-//  #. column of winning numbers displayed on one side of screen
+//  6. ✅div so player can see how much is currently out in play on each number
+//  #. ✅column of winning numbers displayed on one side of screen
 //  7. Mobile responsive!!
 //    7a. column of winning numbers becomes a row
 //    7b. wheel and board must now be stacked somehow
@@ -84,6 +84,12 @@
 
 
 //5. Functions::
+//      FUNCTIONS THAT NEED HELP::
+//          DETERMINE THE BET
+//          INCREASE BET ON SQUARE
+//          DISPLAY CURRENT BETS
+//          DETERMINE LOSSES
+
 //      /*----init(invoke at top)----*/
 //           --Board is clear
 //           --ask player what charachter they want to be
@@ -105,7 +111,8 @@
 //        
 
 
-
+//  I TOTALLY FORGOT ABOUT WHAT HAPPENS IF PLAYER LOSES!!!
+//  WIN FUNCTIONS ARE SET JUST TO GIVE WINNINGS, NOT GIVE THE BET BACK UGH
         //  so! there is insideBetsBox and outsideBetsBox
         //      insideBets function for click takes the index and pushes ot insideBets array
         //      outsideBets funciton will take click and send index to outsideBets array
@@ -150,6 +157,7 @@
 //              this needs a timeOut function!!
 //              trigger warning for accessibility
 //              vegas music playing
+//          --clear the board
 
 
 
@@ -285,3 +293,10 @@
     //     console.log(insideId)
     //     return ;
     // }
+    // let rec44Evn = [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36];
+    // let rec47Odd = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35];
+    //let rec43Eitn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+    //let rec48Thsx = [19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
+    // let rec40Frst = [1,2,3,4,5,6,7,8,9,10,11,12];
+    // let rec41Sec = [13,14,15,16,17,18,19,20,21,22,23,24];
+    // let rec42Thrd = [25,26,27,28,29,30,31,32,33,34,35,36];

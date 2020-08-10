@@ -8,7 +8,7 @@ let rec46Grn = [1,3,5,7,9,12,16,18,19,21,25,27,30,32,34,36];
 
 /*-------------State Variables-------------*/
 //multiple bets ?! oh geez, how to know which bet is the winning number??
-let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [];
+let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [], displayBets= [];
 let betChip = 50;
 
 
@@ -19,19 +19,20 @@ const outsideBetsBox = document.getElementById('outsideBets');
 const playerTotalEl = document.getElementById('total');
 const spinEl = document.getElementById('spin');
 const prevNumsEl = document.getElementById('prevNumbers');
-const currentBetEl = document.getElementById('currentBets')
+const currentBetEl = document.getElementById('currentBets');
+const winningNumDivEl = document.getElementById('winningNumDiv');
 
 
-//will need to figure how many to display and start .shift() to remove from beginning of array (oldest numbers)
-//had to add p tags so that the syling is different from the headers for this section. may not be necesary really and more of a pain than it's worth
-function displayPreviousWinningNums(){
-    let prevNums = document.createTextNode(`${previousNums}`);
-}
+
+
 /*-------------Event Listeners-------------*/
+    //why wont these work when i try to call all the functions inside one event listener
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 insideBetsBox.addEventListener('click', placeInsideBetChips);
+insideBetsBox.addEventListener('click', displayCurrentBets);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 outsideBetsBox.addEventListener('click', placeOustideBetChips);
+outsideBetsBox.addEventListener('click', displayCurrentBets);
 spinEl.addEventListener('click', render);
 
 
@@ -40,6 +41,9 @@ function init(){
     playerTotal = 1000;
     playerNumber = [];
     //clear board
+    //clear current bets
+    //clear winning number div
+    //clear prev winners
 }
 
 function handleInsideBetsClick(e){
@@ -62,8 +66,9 @@ function placeInsideBetChips(e){
     chip.appendChild(chipText);
     chip.className = 'chip'
     document.getElementById(insideId).appendChild(chip);
+    displayCurrentBets.push(insideId);
     console.log(insideId)
-    return ;
+    return insideId;
 }
 
 //if second click is on the chip (not the rest of the space in the square) it's an error
@@ -74,76 +79,99 @@ function placeOustideBetChips(e){
     outChip.appendChild(outChipText);
     outChip.className = 'chip';
     document.getElementById(outsideId).appendChild(outChip);
+    displayCurrentBets.push(outsideId);
     console.log(outsideId);
-    return ;
+    return outsideId;
+}
+
+function determineTheBet(){
+    //for each chip placed on the board, total goes down 50
 }
 
 function increaseBetOnSquare(){
 
 }
 
+function displayCurrentBets(insideId, outsideId){
+    currentBetEl.innerHTML = 'Current Bets';
+    let displayBetsDiv = document.createElement('p');
+    let betsDisplay = document.createTextNode(``)
+}
 
-function getWinningNumber() {
+function getWinningNumber(){
     winner = (Math.floor(Math.random()*37));
-    displayWInningNum();
+    displayWinningNum();
     previousNums.push(winner);
 }
 
-function displayWInningNum(){
-    let winNumDiv = document.createElement('div')
+//still cant get the old number to leave before the new number arrives
+function displayWinningNum(){
+    winningNumDivEl.innerHTML = '';
+    let winNumPTag = document.createElement('p')
+    winNumPTag.innerHTML = '';
     let winningNum = document.createTextNode(`${winner}`);
-    winNumDiv.appendChild(winningNum);
-    winNumDiv.className = 'winningNumber';
-    document.getElementById('mainArt').appendChild(winNumDiv)
-    console.log(winNumDiv)
+    winNumPTag.appendChild(winningNum);
+    winNumPTag.className = 'winningNumber';
+    document.getElementById('mainArt').appendChild(winNumPTag)
+    console.log(winNumPTag)
 }
 
-
+//will need to figure how many to display and start .shift() to remove from beginning of array (oldest numbers)
+//is appending entire array each click...need to just add the newest number
+function displayPreviousWinningNums(){
+    prevNumsEl.innerHTML = `Previous Winners </br>`;
+    let prevNumPTag = document.createElement('p');
+    let prevNumsDisp = document.createTextNode(`${previousNums}`);
+    prevNumPTag.appendChild(prevNumsDisp);
+    prevNumsDisp.className = 'displayNums';
+    prevNumsEl.appendChild(prevNumsDisp);
+    console.log(previousNums)
+}
 
 /* not 100% about the math here. Will playerTotal add all 4 contingencies if necessary?*/
-function determineInsideWins() {
+function determineInsideWins(){
     if (playerInsideBets.includes(winner)){
-        playerTotal += (35 * betChip);
+        playerTotal += (36 * betChip);
     }
     if (playerInsideBets.includes('37') && sq37El.includes(winner)){
-        playerTotal += (2 * betChip);
+        playerTotal += (3 * betChip);
     }
     if (playerInsideBets.includes('38') && sq38El.includes(winner)){
-        playerTotal += (2 * betChip);
+        playerTotal += (3 * betChip);
     }
     if (playerInsideBets.includes('39') && sq39El.includes(winner)){
-        playerTotal += (2 * betChip);
+        playerTotal += (3 * betChip);
     }
     return playerTotal;
 }
 
-function determineOutsideWins(winner) {
-    if (playerOutsideBets.includes('40') && (winner >= 1 && winner <= 12) {
-        playerTotal += (2 * betChip);
+function determineOutsideWins(winner){
+    if (playerOutsideBets.includes('40') && (winner >= 1 && winner <= 12)) {
+        playerTotal += (3 * betChip);
     }
     if (playerOutsideBets.includes('41') && (winner >= 13 && winner <=24)) {
-        playerTotal += (2 * betChip);
+        playerTotal += (3 * betChip);
     }
     if (playerOutsideBets.includes('42') && (winner >= 25 && winner <= 36)) {
+        playerTotal += (3 * betChip);
+    }
+    if (playerOutsideBets.includes('43') && (winner >= 1 && winner <=18)) {
         playerTotal += (2 * betChip);
     }
-    if (playerOutsideBets.includes('43') && (winner >= 1 && winner <=18) {
-        playerTotal += (betChip);
-    }
     if (playerOutsideBets.includes('44') && winner % 2 === 0) {
-        playerTotal += (betChip);
+        playerTotal += (2 * betChip);
     }
     if (playerOutsideBets.includes('45') && rec45Org.includes(winner)) {
-        playerTotal += (betChip);
+        playerTotal += (2 * betChip);
     }
     if (playerOutsideBets.includes('46') && rec46Grn.includes(winner)) {
-        playerTotal += (betChip);
+        playerTotal += (2 * betChip);
     }
-    if (playerOutsideBets.includes('47') && winner % 2 !== 0 {
-        playerTotal += (betChip);
+    if (playerOutsideBets.includes('47') && winner % 2 !== 0) {
+        playerTotal += (2 * betChip);
     }
-    if (playerOutsideBets.includes('48') && (winner >= 19 && winner <=36) {
-        playerTotal += (betChip);
+    if (playerOutsideBets.includes('48') && (winner >= 19 && winner <=36)) {
+        playerTotal += (2 * betChip);
     }
     return playerTotal;
 }
@@ -152,39 +180,14 @@ function determineLosses(){
 //something like if player inside/outside bets !== adding to total, then keep the money
 }
 
-function render() {
+function render(){
     getWinningNumber();
     determineInsideWins();
     determineOutsideWins();
+    displayPreviousWinningNums();
     let appTotal = document.createTextNode(`${playerTotal}`);
     playerTotalEl.appendChild(appTotal)
 }
-
-
-
-
-        //  so! there is insideBetsBox and outsideBetsBox
-        //      insideBets function for click takes the index and pushes ot insideBets array
-        //      outsideBets funciton will take click and send index to outsideBets array
-        //          i can only figure here to make constants to convert the outside bets first12=40, sec12=41, or maybe make an array of numbers by payout? but prob still need to convert them to indexes
-        //      then getWinner runs
-        //      pass winner into function to see if inside bets win
-        //      pass winner into function to see if ouside bets win
-        //      pass both of those to payout function?
-        //      then render to screen and clear board
-//--determine winners
-//              -if random number, is winner
-//              -if random number was even/odd and even/odd was played
-//              -if number was in one of the 2:1 columns and that square was played
-//              -if number was in 1st, 2nd, or 3rd 12s and that box was played
-//              -if number was in first or last 18 and that box was played
-//          --mark winning number
-//          --winner/payouts--this is total player $ + the payout
-//              Number 35:1
-//              1st/2nd/3rd 12 sets, column dozens all 2:1
-//              Odd/Even, Red/Black, 1to18, 19to36 all 1:1
-
-
 
 
 
