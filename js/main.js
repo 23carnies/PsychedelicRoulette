@@ -57,12 +57,14 @@ function handleInsideBetsClick(e){
     let squareIndex = parseInt(e.target.id.replace('sq', ''));
     // console.log(squareIndex);
     playerInsideBets.push(squareIndex);
+    displayCurrentBets();
     return squareIndex;
 }
 function handleOutsideBetsClick(e){
     let recIndex = parseInt(e.target.id.replace('rec', ''));
     //console.log(recIndex);
     playerOutsideBets.push(recIndex);
+    displayCurrentBets();
     return recIndex;
 }
 
@@ -101,6 +103,15 @@ function increaseBetOnSquare(){
 
 }
 
+function displayCurrentBets(){
+    currentBetEl.innerHTML = `Current bets</br>`;
+    let displayBetsDiv = document.createElement('p');
+    let betsDisplay = document.createTextNode(`${displayBets}`);
+    displayBetsDiv.appendChild(betsDisplay);
+    betsDisplay.className = 'displayNums';
+    currentBetEl.appendChild(betsDisplay);
+    console.dir(betsDisplay)
+}
 // function displayCurrentBets(squareIndex, recIndex){
 //     currentBetEl.innerHTML = 'Current Bets</br>';
 //     let displayBetsDiv = document.createElement('p');
@@ -196,7 +207,7 @@ function displayPlayerTotal() {
     totalPTag.appendChild(appTotal);
     appTotal.className = 'displaNums';
     playerTotalEl.appendChild(appTotal);
-    console.log(appTotal);
+    //.log(appTotal);
 }
 
 function render(){
