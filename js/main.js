@@ -31,12 +31,15 @@ const winningNumDivEl = document.getElementById('winningNumDiv');
 /*-------------Event Listeners-------------*/
     //why wont these work when i try to call all the functions inside one event listener
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
-insideBetsBox.addEventListener('click', placeInsideBetChips);
-insideBetsBox.addEventListener('click', displayCurrentBets);
+// insideBetsBox.addEventListener('click', placeInsideBetChips);
+// insideBetsBox.addEventListener('click', displayCurrentBets);
+
+
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
-outsideBetsBox.addEventListener('click', placeOustideBetChips);
-outsideBetsBox.addEventListener('click', displayCurrentBets);
+// outsideBetsBox.addEventListener('click', placeOustideBetChips);
+// outsideBetsBox.addEventListener('click', displayCurrentBets);
 spinEl.addEventListener('click', render);
+//spinEl.addEventListener('click', spinWheel);
 
 
 /*-------------Functions-------------*/
@@ -57,14 +60,16 @@ function handleInsideBetsClick(e){
     let squareIndex = parseInt(e.target.id.replace('sq', ''));
     // console.log(squareIndex);
     playerInsideBets.push(squareIndex);
-    //displayCurrentBets();
+    placeInsideBetChips(e);
+    displayCurrentBets();
     return squareIndex;
 }
 function handleOutsideBetsClick(e){
     let recIndex = parseInt(e.target.id.replace('rec', ''));
     //console.log(recIndex);
     playerOutsideBets.push(recIndex);
-    //displayCurrentBets();
+    placeOustideBetChips(e);
+    displayCurrentBets();
     return recIndex;
 }
 
@@ -79,7 +84,6 @@ function placeInsideBetChips(e){
     displayBets.push(insideId);
     playerTotal -= 50;
     //console.log(insideId)
-    return insideId;
 }
 
 //if second click is on the chip (not the rest of the space in the square) it's an error
@@ -94,7 +98,6 @@ function placeOustideBetChips(e){
     displayBets.push(outsideId);
     playerTotal -= 50;
     //console.log(outsideId);
-    return outsideId;
 }
 
 function onBet(){
@@ -104,16 +107,20 @@ function onBet(){
 function increaseBetOnSquare(){
 
 }
-function replaceStringBets(displayBets,x){
-    displayBets = x.split('');
-   if (displayBets.length > 4) {
-       displayBets.splice(0,3);
-   } else {
-       displayBets.splice(0,2);
-    } 
-    console.log(displayBets);
-   return displayBets.join('');
-}
+
+
+
+
+// function replaceStringBets(displayBets,x){
+//     displayBets = x.split('');
+//    if (displayBets.length > 4) {
+//        displayBets.splice(0,3);
+//    } else {
+//        displayBets.splice(0,2);
+//     } 
+//     console.log(displayBets);
+//    return displayBets.join('');
+// }
 // function replaceStringBets(){
 //     for(let i=0;i<displayBets.length;i++){
 //         displayBets[i].replace(/[^0-9\.]+/g, '');
@@ -129,6 +136,11 @@ function replaceStringBets(displayBets,x){
 //    console.log(displayBets);
 // }
 
+/*-------------Wheel Spin-------------*/
+function spinWheel(){
+
+}
+
 /*-------------Display Info Functions-------------*/
 function render(){
     getWinningNumber();
@@ -141,10 +153,10 @@ function render(){
 }
 
 function displayCurrentBets(){
-    //newdisplayBets = displayBets.replace(/[^0-9\.]+/g, '');
+    let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
     currentBetEl.innerHTML = `Current Bets</br>`;
     let displayBetsDiv = document.createElement('p');
-    let betsDisplay = document.createTextNode(`${displayBets}`);
+    let betsDisplay = document.createTextNode(`${newdisplayBets}`);
     displayBetsDiv.appendChild(betsDisplay);
     betsDisplay.className = 'displayNums';
     currentBetEl.appendChild(betsDisplay);
@@ -177,6 +189,7 @@ function displayPreviousWinningNums(){
     prevNumsDisp.className = 'displayNums';
     prevNumsEl.appendChild(prevNumsDisp);
 }
+
 
 function displayPlayerTotal() {
     playerTotalEl.innerHTML = `Total $`;
