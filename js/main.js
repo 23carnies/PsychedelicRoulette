@@ -105,9 +105,19 @@ function displayPreviousWinningNums(){
     let prevNums = document.createTextNode(`${previousNums}`);
 }
 
+/* not 100% about the math here. Will playerTotal add all 4 contingencies if necessary?*/
 function determineInsideWins() {
     if (playerInsideBets.includes(winner)){
         playerTotal += (35 * betChip);
+    }
+    if (playerInsideBets.includes('37') && sq37El.includes(winner)){
+        playerTotal =+ (2 * betChip)
+    }
+    if (playerInsideBets.includes('38') && sq38El.includes(winner)){
+        playerTotal =+ (2 * betChip)
+    }
+    if (playerInsideBets.includes('39') && sq39El.includes(winner)){
+        playerTotal =+ (2 * betChip)
     }
     return playerTotal;
 }
