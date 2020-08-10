@@ -148,9 +148,11 @@ function render(){
     determineOutsideWins();
     displayPreviousWinningNums();
     displayPlayerTotal();
-    
+    shiftFromPrevWinners();
+
     //setTimeout(clearBoard, 15000);
 }
+
 
 function displayCurrentBets(){
     let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
@@ -179,6 +181,7 @@ function displayWinningNum(){
     document.getElementById('mainArt').appendChild(winningNumDivEl)
 }
 
+
 //will need to figure how many to display and start .shift() to remove from beginning of array (oldest numbers)
 //is appending entire array each click...need to just add the newest number
 function displayPreviousWinningNums(){
@@ -190,6 +193,11 @@ function displayPreviousWinningNums(){
     prevNumsEl.appendChild(prevNumsDisp);
 }
 
+function shiftFromPrevWinners(){
+    if (previousNums.length === 11){
+        previousNums.shift();
+    }
+}
 
 function displayPlayerTotal() {
     playerTotalEl.innerHTML = `Total $`;
