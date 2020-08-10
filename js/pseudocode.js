@@ -24,7 +24,7 @@
 //        multi colored wheel with numbers
 // 4. set play button  needed??
 // 5. ✅set spin button
-// 6. set div for number to be appended to  
+// 6. ✅set div for number to be appended to  
 // 7. ✅set div for total
 // 8. ✅set div for bet input field
 // 9. ✅set div for prev numbers
@@ -42,7 +42,7 @@
 /*------------CSS Pseudocode----------*/
 //  1. ✅the board:: 39squares (1-36 + 2:1 section) + 9 boxes (evens/colors/groups of 12/18) + the 0 box
 //  2. the wheel:: 37 sections
-//  3. the chips:: colorful, rainbow or random color chips ?
+//  3. ✅the chips:: colorful, rainbow or random color chips ?
 //  4. the buttons:: very colorful
 //  5. player cash div should be rainbow and call them rainbucks
 //  6. div so player can see how much is currently out in play on each number
@@ -51,14 +51,14 @@
 //    7a. column of winning numbers becomes a row
 //    7b. wheel and board must now be stacked somehow
 //  8. Choose persona at beginning of game
-//  9. **use Asset Google Font for lettering. hope it looks good in colors
+//  9. ✅**use Asset Google Font for lettering. hope it looks good in colors
 
 
 /*------------JS Pseudocode---------*/
 //1. Define Constants
 //      --? the board and the wheel?
 
-//2. Define State variables
+//2. ✅Define State variables
 //    what does the app need to remember throughout the game?
 //        --prev called numbers
 //        --total $$ player has
@@ -69,26 +69,29 @@
 //      player has $1000
 //      player can set bets in increments of $50
 
-//3. Select/cache reference elements
+//3. ✅Select/cache reference elements
 
 //4. Add event listeners
-//      entire board
+//      ✅entire board
 //      bet increase button
 //          more than one button? 
 //          one button for bet amount 
 //          minimum functionality: bet on number, odd/even, and red/black
 //          (better if can bet 1st 12, 2nd 12, 3rd 12)
-//      spin button 
+//      ✅spin button 
+//      ✅add chip to board
+
 
 
 //5. Functions::
 //      /*----init(invoke at top)----*/
 //           --Board is clear
 //           --ask player what charachter they want to be
-//           --player has $1000
+//           --player has $1000✅
 //           --wheel is still/flat colored
 //           --tooltip pop up with odds for groups of squares/boxes
         /*---RENDER---*/
+//          ✅ set winning number functions        
 //          ➣set min/max betting opportunities
 //              -must make minimum bet on inside of board (numbers)
 //              -must make minimum bet on outside of board (other squares/boxes)
@@ -99,7 +102,30 @@
 //          ➣code must take in what squares/boxes have been selected and hold this info to compare to winning number
 //          ➣set transform-function color rotation effect for wheel 
 //               --oh the math here
-//           ➣Render (as user interacts with app, code the app so that it UPDATES STATE, then CALLS RENDER)
+//        
+
+
+
+        //  so! there is insideBetsBox and outsideBetsBox
+        //      insideBets function for click takes the index and pushes ot insideBets array
+        //      outsideBets funciton will take click and send index to outsideBets array
+        //          i can only figure here to make constants to convert the outside bets first12=40, sec12=41, or maybe make an array of numbers by payout? but prob still need to convert them to indexes
+        //      then getWinner runs
+        //      pass winner into function to see if inside bets win
+        //      pass winner into function to see if ouside bets win
+        //      pass both of those to payout function?
+        //      then render to screen and clear board
+
+
+
+//              ✅add chip to board
+//                  ✅one for inside/outside
+//                  ✅on the click, get id of square/rec clicked, create div with "50", add #chip style, and add that to the square
+//                      just need them to place a little nicer in the box...later details
+
+
+
+//➣Render (as user interacts with app, code the app so that it UPDATES STATE, then CALLS RENDER)
 //               render can be a funcion of smaller funcions
 //               --the wheel spin
 //          --set time for how long spin takes
@@ -235,3 +261,27 @@
 // Wednesday EOD: Your app should be 90-100% functional, with just styling left.
 // Thursday EOD: Your app is beautiful because you spent the whole day styling it.
 // Friday: Profit.
+
+
+
+
+
+
+// let insideIdEl = new DOMParser().parseFromString(insideId, "text/html")
+    // console.log(`i am the ${insideIdEl}`);
+    //call add chip
+
+    // let insideIdEl = new DOMParser().parseFromString(`${e.target.getAttribute('id')}`, "text/html")
+
+
+
+    // function placeInsideBetChips(e){
+    //     let insideId = e.target.getAttribute('id');
+    //     let chip = document.createElement('div');
+    //     let chipText = document.createTextNode('50');
+    //     chip.appendChild(chipText);
+    //     chip.className = 'chip'
+    //     document.getElementById(insideId).appendChild(chip);
+    //     console.log(insideId)
+    //     return ;
+    // }

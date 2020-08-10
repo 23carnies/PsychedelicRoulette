@@ -4,7 +4,8 @@
 
 /*-------------State Variables-------------*/
 //multiple bets ?! oh geez, how to know which bet is the winning number??
-let playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [];
+let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [];
+let betChip = 50;
 let sq37El = [1,4,7,10,13,16,19,22,25,28,31,34];
 let sq38El = [2,5,8,11,14,17,20,23,26,29,32,35];
 let sq39El = [3,6,9,12,15,18,21,24,27,30,33,36];
@@ -22,6 +23,10 @@ let rec48Thsx = [19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
 /*-------------Cached Refernce Elements-------------*/
 const insideBetsBox = document.getElementById('insideBets');
 const outsideBetsBox = document.getElementById('outsideBets');
+const playerTotalEl = document.getElementById('total');
+const spinEl = document.getElementById('spin');
+const prevNumsEl = document.getElementById('prevNumbers');
+const currentBetEl = document.getElementById('currentBets')
 
 
 /*-------------Event Listeners-------------*/
@@ -29,6 +34,8 @@ insideBetsBox.addEventListener('click', handleInsideBetsClick);
 insideBetsBox.addEventListener('click', placeInsideBetChips);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 outsideBetsBox.addEventListener('click', placeOustideBetChips);
+spinEl.addEventListener('click', render);
+
 
 /*-------------Functions-------------*/
 function init(){
@@ -61,29 +68,73 @@ function placeInsideBetChips(e){
     return ;
 }
 
+//if second click is on the chip it's an error
 function placeOustideBetChips(e){
     let outsideId = e.target.getAttribute('id');
     let outChip = document.createElement('div');
-    let outChipText = document.createTextNode('50');
+    let outChipText = document.createTextNode(`${betChip}`);
     outChip.appendChild(outChipText);
-    outChip.className = 'chip'
+    outChip.className = 'chip';
     document.getElementById(outsideId).appendChild(outChip);
-    console.log(outsideId)
+    console.log(outsideId);
     return ;
+}
+
+function increaseBetOnSquare(){
+
 }
 
 
 function getWinningNumber() {
-    let winner = (Math.floor(Math.random()*37));
+    winner = (Math.floor(Math.random()*37));
+    displayWInningNum();
+    previousNums.push(winner);
+}
+
+function displayWInningNum(){
+    let winNumDiv = document.createElement('div')
+    let winningNum = document.createTextNode(`${winner}`);
+    winNumDiv.appendChild(winningNum);
+    winNumDiv.className = 'winningNumber';
+    document.getElementById('mainArt').appendChild(winNumDiv)
+    //it works up to here
+    console.log(winNumDiv)
+}
+
+function displayPreviousWinningNums(){
+    let prevNums = document.createTextNode(`${previousNums}`);
+}
+
+function determineInsideWins() {
+    if (playerInsideBets.includes(winner)){
+        playerTotal += (35 * betChip);
+    }
+    return playerTotal;
+}
+
+function determineOutsideWins(winner) {
+
+}
+
+function render() {
+    getWinningNumber();
+    determineInsideWins();
+    let appTotal = document.createTextNode(`${playerTotal}`);
+    playerTotalEl.appendChild(appTotal)
 }
 
 
-// function payOut(winner) {
-//     if (playerBets.includes(winner)) {
-//         playerTotal += (/*bet*/ * 35);
-//     } 
-//     if ()
-// }
+
+
+        //  so! there is insideBetsBox and outsideBetsBox
+        //      insideBets function for click takes the index and pushes ot insideBets array
+        //      outsideBets funciton will take click and send index to outsideBets array
+        //          i can only figure here to make constants to convert the outside bets first12=40, sec12=41, or maybe make an array of numbers by payout? but prob still need to convert them to indexes
+        //      then getWinner runs
+        //      pass winner into function to see if inside bets win
+        //      pass winner into function to see if ouside bets win
+        //      pass both of those to payout function?
+        //      then render to screen and clear board
 //--determine winners
 //              -if random number, is winner
 //              -if random number was even/odd and even/odd was played
