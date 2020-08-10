@@ -44,7 +44,6 @@ article {
     width: 400px;
     height: 400px;
     box-shadow: 2px 2px 4px rgb(125, 248, 2);
-
 }
 
 #sp0 { 
@@ -174,7 +173,7 @@ article {
 }
 
 #sq0 > p {
-    transform:rotate(-90deg)
+    transform: rotate(-90deg)
 }
 
 .square {
@@ -244,6 +243,13 @@ article {
 
 /* Betting Board Ends */
 
+/* Display Info Div */
+.displayInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
 
 /* Winning Number */
 .winningNumber {
@@ -256,15 +262,12 @@ article {
     font-size: 100px;
 }
 
-
-
 /* Current Bets, Previous Numbers and Total */
 #currentBets {
     display: flex;
     height: 75px;
     width: 400px;
     justify-content: center;
-    margin: 10px;
 }
 
 #total {
@@ -281,11 +284,10 @@ article {
     height: 75px;
     width: 300px;
     justify-content: center;
-    margin: 10px;
 }
 
 .displayNums {
-    
+    margin: 15px;
     font-weight: 700;
     border-radius: 15px;
     background: rgb(131,58,180);
@@ -296,7 +298,6 @@ article {
 /* BUTTONS */
 #spin {
     width: 100px;
-    margin: 50px;
     padding: 18px;
     border: 2px ridge white;
     border-radius: 15px;
@@ -327,4 +328,5 @@ article {
     box-shadow: -2px 2px crimson;
 
 }
+
 
