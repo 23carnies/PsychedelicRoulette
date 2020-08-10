@@ -52,6 +52,7 @@ function init(){
     displayPlayerTotal();
 }
 
+/*-------------Handle Clicks For Bets-------------*/
 function handleInsideBetsClick(e){
     let squareIndex = parseInt(e.target.id.replace('sq', ''));
     // console.log(squareIndex);
@@ -67,6 +68,7 @@ function handleOutsideBetsClick(e){
     return recIndex;
 }
 
+/*-------------Add Chips to Board-------------*/
 function placeInsideBetChips(e){
     let insideId = e.target.getAttribute('id');
     let chip = document.createElement('div');
@@ -127,6 +129,17 @@ function replaceStringBets(displayBets,x){
 //    console.log(displayBets);
 // }
 
+/*-------------Display Info Functions-------------*/
+function render(){
+    getWinningNumber();
+    determineInsideWins();
+    determineOutsideWins();
+    displayPreviousWinningNums();
+    displayPlayerTotal();
+    
+    //setTimeout(clearBoard, 15000);
+}
+
 function displayCurrentBets(){
     //newdisplayBets = displayBets.replace(/[^0-9\.]+/g, '');
     currentBetEl.innerHTML = `Current Bets</br>`;
@@ -165,6 +178,16 @@ function displayPreviousWinningNums(){
     prevNumsEl.appendChild(prevNumsDisp);
 }
 
+function displayPlayerTotal() {
+    playerTotalEl.innerHTML = `Total $`;
+    let totalPTag = document.createElement('p');
+    let appTotal = document.createTextNode(`${playerTotal}`);
+    totalPTag.appendChild(appTotal);
+    appTotal.className = 'displaNums';
+    playerTotalEl.appendChild(appTotal);
+}
+
+/*-------------Payouts-------------*/
 /* not 100% about the math here. Will playerTotal add all 4 contingencies if necessary?*/
 function determineInsideWins(){
     if (playerInsideBets.includes(winner)){
@@ -213,14 +236,7 @@ function determineOutsideWins(winner){
     return playerTotal;
 }
 
-function displayPlayerTotal() {
-    playerTotalEl.innerHTML = `Total $`;
-    let totalPTag = document.createElement('p');
-    let appTotal = document.createTextNode(`${playerTotal}`);
-    totalPTag.appendChild(appTotal);
-    appTotal.className = 'displaNums';
-    playerTotalEl.appendChild(appTotal);
-}
+
 
 // function clearBoard(outsideId, insideId){
 //     document.getElementById(outsideId).removeChild(outChip);
@@ -228,15 +244,7 @@ function displayPlayerTotal() {
 //     //console.log(insideId, outsideId)
 // }
 
-function render(){
-    getWinningNumber();
-    determineInsideWins();
-    determineOutsideWins();
-    displayPreviousWinningNums();
-    displayPlayerTotal();
-    
-    //setTimeout(clearBoard, 15000);
-}
+
 
 
 
