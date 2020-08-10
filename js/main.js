@@ -154,7 +154,7 @@ function determineInsideWins(){
         playerTotal += (3 * parseInt(betChip));
     }
     return playerTotal;
-    console.log(playerInsideBets)
+    //console.log(playerInsideBets)
 }
 
 function determineOutsideWins(winner){
@@ -188,9 +188,6 @@ function determineOutsideWins(winner){
     return playerTotal;
 }
 
-function determineLosses(){
-//something like if player inside/outside bets !== adding to total, then keep the money
-}
 
 function displayPlayerTotal() {
     playerTotalEl.innerHTML = `Total $`;
