@@ -1,23 +1,16 @@
 /*-------------Constants-------------*/
-
+let sq37El = [1,4,7,10,13,16,19,22,25,28,31,34];
+let sq38El = [2,5,8,11,14,17,20,23,26,29,32,35];
+let sq39El = [3,6,9,12,15,18,21,24,27,30,33,36];
+let rec45Org = [2,4,6,8,10,11,13,14,15,17,20,22,23,24,26,28,29,31,33,35];
+let rec46Grn = [1,3,5,7,9,12,16,18,19,21,25,27,30,32,34,36];
 
 
 /*-------------State Variables-------------*/
 //multiple bets ?! oh geez, how to know which bet is the winning number??
 let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [];
 let betChip = 50;
-let sq37El = [1,4,7,10,13,16,19,22,25,28,31,34];
-let sq38El = [2,5,8,11,14,17,20,23,26,29,32,35];
-let sq39El = [3,6,9,12,15,18,21,24,27,30,33,36];
-let rec40Frst = [1,2,3,4,5,6,7,8,9,10,11,12];
-let rec41Sec = [13,14,15,16,17,18,19,20,21,22,23,24];
-let rec42Thrd = [25,26,27,28,29,30,31,32,33,34,35,36];
-let rec43Eitn = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
-let rec44Evn = [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36];
-let rec45Org = [2,4,6,8,10,11,13,14,15,17,20,22,23,24,26,28,29,31,33,35];
-let rec46Grn = [1,3,5,7,9,12,16,18,19,21,25,27,30,32,34,36];
-let rec47Odd = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35];
-let rec48Thsx = [19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36];
+
 
 
 /*-------------Cached Refernce Elements-------------*/
@@ -29,6 +22,11 @@ const prevNumsEl = document.getElementById('prevNumbers');
 const currentBetEl = document.getElementById('currentBets')
 
 
+//will need to figure how many to display and start .shift() to remove from beginning of array (oldest numbers)
+//had to add p tags so that the syling is different from the headers for this section. may not be necesary really and more of a pain than it's worth
+function displayPreviousWinningNums(){
+    let prevNums = document.createTextNode(`${previousNums}`);
+}
 /*-------------Event Listeners-------------*/
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 insideBetsBox.addEventListener('click', placeInsideBetChips);
@@ -100,9 +98,7 @@ function displayWInningNum(){
     console.log(winNumDiv)
 }
 
-function displayPreviousWinningNums(){
-    let prevNums = document.createTextNode(`${previousNums}`);
-}
+
 
 /* not 100% about the math here. Will playerTotal add all 4 contingencies if necessary?*/
 function determineInsideWins() {
@@ -122,19 +118,19 @@ function determineInsideWins() {
 }
 
 function determineOutsideWins(winner) {
-    if (playerOutsideBets.includes('40') && rec40Frst.includes(winner)) {
+    if (playerOutsideBets.includes('40') && (winner >= 1 && winner <= 12) {
         playerTotal += (2 * betChip);
     }
-    if (playerOutsideBets.includes('41') && rec41Sec.includes(winner)) {
+    if (playerOutsideBets.includes('41') && (winner >= 13 && winner <=24)) {
         playerTotal += (2 * betChip);
     }
-    if (playerOutsideBets.includes('42') && rec42Thrd.includes(winner)) {
+    if (playerOutsideBets.includes('42') && (winner >= 25 && winner <= 36)) {
         playerTotal += (2 * betChip);
     }
-    if (playerOutsideBets.includes('43') && rec43Eitn.includes(winner)) {
+    if (playerOutsideBets.includes('43') && (winner >= 1 && winner <=18) {
         playerTotal += (betChip);
     }
-    if (playerOutsideBets.includes('44') && rec44Evn.includes(winner)) {
+    if (playerOutsideBets.includes('44') && winner % 2 === 0) {
         playerTotal += (betChip);
     }
     if (playerOutsideBets.includes('45') && rec45Org.includes(winner)) {
@@ -143,18 +139,23 @@ function determineOutsideWins(winner) {
     if (playerOutsideBets.includes('46') && rec46Grn.includes(winner)) {
         playerTotal += (betChip);
     }
-    if (playerOutsideBets.includes('47') && rec47Odd.includes(winner)) {
+    if (playerOutsideBets.includes('47') && winner % 2 !== 0 {
         playerTotal += (betChip);
     }
-    if (playerOutsideBets.includes('48') && rec48Thsx.includes(winner)) {
+    if (playerOutsideBets.includes('48') && (winner >= 19 && winner <=36) {
         playerTotal += (betChip);
     }
     return playerTotal;
 }
 
+function determineLosses(){
+//something like if player inside/outside bets !== adding to total, then keep the money
+}
+
 function render() {
     getWinningNumber();
     determineInsideWins();
+    determineOutsideWins();
     let appTotal = document.createTextNode(`${playerTotal}`);
     playerTotalEl.appendChild(appTotal)
 }
