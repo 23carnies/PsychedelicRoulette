@@ -52,6 +52,7 @@
 //    7b. wheel and board must now be stacked somehow
 //  8. Choose persona at beginning of game
 //  9. ✅**use Asset Google Font for lettering. hope it looks good in colors
+//  10. MAKE GRADIENTS IN DISPLAY BOXES MIRROR EACH OTHER. TOO SAME SAME
 
 
 /*------------JS Pseudocode---------*/
@@ -66,7 +67,7 @@
 //    use the wireframes/userstories/pseudocode to determine what state needs to be tracked
 //          set the base state of the board (start of game)
 //      no bets placed
-//      player has $1000
+//      ✅player has $1000
 //      player can set bets in increments of $50
 
 //3. ✅Select/cache reference elements
@@ -87,12 +88,24 @@
 //      FUNCTIONS THAT NEED HELP::
 //          DETERMINE THE BET
 //          INCREASE BET ON SQUARE
-//          DISPLAY CURRENT BETS
-//          DETERMINE LOSSES
+
+//          DISPLAY CURRENT BETS    could there be an arrow up down here to change the amount of bet per square???
+        //noon monday. it displays the displayBets array. need to convert to user appropriate info
+        //so. loop through the array, if # is 0-36, just remove the 'sq' in front of the number. --so i need this to give me a new array and display that one
+        //if the # is 37-39 change to 'Col 1, Col2, Col3'
+        //if its one of the outside bets:::
+        //something else, no idea just yet
+
+        //then i can take this new array and filter it somehow and add ': ${theBetAmount}' and maybe an up/down arrow to change the amounts
+        //if add the arrows, need to only allow one click per square and somehow tell the player to change the amount in the other square
+
+
 
 //      /*----init(invoke at top)----*/
 //           --Board is clear
 //           --ask player what charachter they want to be
+//              this should be on a landing page, show robot/cat (word for picture here) and stories for each. when clicked, go to game with that info....may be a stretch goal
+
 //           --player has $1000✅
 //           --wheel is still/flat colored
 //           --tooltip pop up with odds for groups of squares/boxes
@@ -105,23 +118,24 @@
 //                  --function for determining if enough chips have been placed
 //                   ➣()()()was the minimum reached? if not, no spin
 //              --how to deal with multiple chips on one spot-visually no change probably but will see total bets in their div
-//          ➣code must take in what squares/boxes have been selected and hold this info to compare to winning number
+//          ✅➣code must take in what squares/boxes have been selected and hold this info to compare to winning number
 //          ➣set transform-function color rotation effect for wheel 
 //               --oh the math here
 //        
 
 
 //  I TOTALLY FORGOT ABOUT WHAT HAPPENS IF PLAYER LOSES!!!
-//  WIN FUNCTIONS ARE SET JUST TO GIVE WINNINGS, NOT GIVE THE BET BACK UGH
-        //  so! there is insideBetsBox and outsideBetsBox
-        //      insideBets function for click takes the index and pushes ot insideBets array
-        //      outsideBets funciton will take click and send index to outsideBets array
-        //          i can only figure here to make constants to convert the outside bets first12=40, sec12=41, or maybe make an array of numbers by payout? but prob still need to convert them to indexes
-        //      then getWinner runs
-        //      pass winner into function to see if inside bets win
-        //      pass winner into function to see if ouside bets win
-        //      pass both of those to payout function?
-        //      then render to screen and clear board
+//  WIN FUNCTIONS ARE SET JUST TO GIVE WINNINGS, NOT GIVE THE BET BACK UGH ✅ seems to be handled
+        //  ✅so! there is insideBetsBox and outsideBetsBox
+        //      ✅insideBets function for click takes the index and pushes ot insideBets array
+        //     ✅ outsideBets funciton will take click and send index to outsideBets array
+        //          ✅i can only figure here to make constants to convert the outside bets first12=40, sec12=41, or maybe make an array of numbers by payout? but prob still need to convert them to indexes
+        //      ✅then getWinner runs
+        //      ✅pass winner into function to see if inside bets win
+        //      ✅pass winner into function to see if ouside bets win
+        //     ✅ pass both of those to payout function?
+        //      ✅then render to screen 
+        //      and clear board
 
 
 
@@ -136,20 +150,20 @@
 //               render can be a funcion of smaller funcions
 //               --the wheel spin
 //          --set time for how long spin takes
-//          --randomly pic number 0-36(could be 37 to include 00)
+//          ✅--randomly pic number 0-36(could be 37 to include 00)
 //          --clearly flash the winning number
-//          --push prev winning numbers to a visible list 
-//          --determine winners
-//              -if random number, is winner
-//              -if random number was even/odd and even/odd was played
-//              -if number was in one of the 2:1 columns and that square was played
-//              -if number was in 1st, 2nd, or 3rd 12s and that box was played
-//              -if number was in first or last 18 and that box was played
+//          ✅--push prev winning numbers to a visible list 
+//          ✅--determine winners
+//              ✅-if random number, is winner
+//              ✅-if random number was even/odd and even/odd was played
+//             ✅ -if number was in one of the 2:1 columns and that square was played
+//             ✅ -if number was in 1st, 2nd, or 3rd 12s and that box was played
+//             ✅ -if number was in first or last 18 and that box was played
 //          --mark winning number
-//          --winner/payouts--this is total player $ + the payout
-//              Number 35:1
-//              1st/2nd/3rd 12 sets, column dozens all 2:1
-//              Odd/Even, Red/Black, 1to18, 19to36 all 1:1
+//          ✅--winner/payouts--this is total player $ + the payout
+//              ✅Number 35:1
+//              ✅1st/2nd/3rd 12 sets, column dozens all 2:1
+//              ✅Odd/Even, Red/Black, 1to18, 19to36 all 1:1
 //          --rave mode for hitting the number
 //              background flashing
 //              wheel flashing
