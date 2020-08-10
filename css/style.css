@@ -140,6 +140,23 @@ article {
     height: 50%;    
 }
 
+/* Wheel */
+img {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 400px;
+    width: 400px;
+    -webkit-transition: -webkit-transform 5s;
+}
+
+.rotate:hover {
+    -webkit-transform: rotate(360deg);
+}
+
+
+
 /* Betting Board Begins */
 #numBoard {
     display: flex;
