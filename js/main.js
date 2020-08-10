@@ -68,7 +68,7 @@ function placeInsideBetChips(e){
     return ;
 }
 
-//if second click is on the chip it's an error
+//if second click is on the chip (not the rest of the space in the square) it's an error
 function placeOustideBetChips(e){
     let outsideId = e.target.getAttribute('id');
     let outChip = document.createElement('div');
@@ -97,7 +97,6 @@ function displayWInningNum(){
     winNumDiv.appendChild(winningNum);
     winNumDiv.className = 'winningNumber';
     document.getElementById('mainArt').appendChild(winNumDiv)
-    //it works up to here
     console.log(winNumDiv)
 }
 
@@ -111,19 +110,46 @@ function determineInsideWins() {
         playerTotal += (35 * betChip);
     }
     if (playerInsideBets.includes('37') && sq37El.includes(winner)){
-        playerTotal =+ (2 * betChip)
+        playerTotal += (2 * betChip);
     }
     if (playerInsideBets.includes('38') && sq38El.includes(winner)){
-        playerTotal =+ (2 * betChip)
+        playerTotal += (2 * betChip);
     }
     if (playerInsideBets.includes('39') && sq39El.includes(winner)){
-        playerTotal =+ (2 * betChip)
+        playerTotal += (2 * betChip);
     }
     return playerTotal;
 }
 
 function determineOutsideWins(winner) {
-
+    if (playerOutsideBets.includes('40') && rec40Frst.includes(winner)) {
+        playerTotal += (2 * betChip);
+    }
+    if (playerOutsideBets.includes('41') && rec41Sec.includes(winner)) {
+        playerTotal += (2 * betChip);
+    }
+    if (playerOutsideBets.includes('42') && rec42Thrd.includes(winner)) {
+        playerTotal += (2 * betChip);
+    }
+    if (playerOutsideBets.includes('43') && rec43Eitn.includes(winner)) {
+        playerTotal += (betChip);
+    }
+    if (playerOutsideBets.includes('44') && rec44Evn.includes(winner)) {
+        playerTotal += (betChip);
+    }
+    if (playerOutsideBets.includes('45') && rec45Org.includes(winner)) {
+        playerTotal += (betChip);
+    }
+    if (playerOutsideBets.includes('46') && rec46Grn.includes(winner)) {
+        playerTotal += (betChip);
+    }
+    if (playerOutsideBets.includes('47') && rec47Odd.includes(winner)) {
+        playerTotal += (betChip);
+    }
+    if (playerOutsideBets.includes('48') && rec48Thsx.includes(winner)) {
+        playerTotal += (betChip);
+    }
+    return playerTotal;
 }
 
 function render() {
