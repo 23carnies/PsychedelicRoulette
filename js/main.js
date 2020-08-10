@@ -32,10 +32,10 @@ const winningNumDivEl = document.getElementById('winningNumDiv');
     //why wont these work when i try to call all the functions inside one event listener
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 insideBetsBox.addEventListener('click', placeInsideBetChips);
-insideBetsBox.addEventListener('click', displayCurrentBets);
+//insideBetsBox.addEventListener('click', displayCurrentBets);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 outsideBetsBox.addEventListener('click', placeOustideBetChips);
-outsideBetsBox.addEventListener('click', displayCurrentBets);
+//outsideBetsBox.addEventListener('click', displayCurrentBets);
 spinEl.addEventListener('click', render);
 
 
@@ -120,14 +120,11 @@ function getWinningNumber(){
 
 //still cant get the old number to leave before the new number arrives
 function displayWinningNum(){
-    // winningNumDivEl.innerHTML = '';
-    winNumPTag.innerHTML = '';
-    let winNumPTag = document.createElement('p')
+    winningNumDivEl.innerHTML = '';
     let winningNum = document.createTextNode(`${winner}`);
-    winNumPTag.appendChild(winningNum);
-    winNumPTag.className = 'winningNumber';
-    document.getElementById('mainArt').appendChild(winNumPTag)
-    //console.log(winNumPTag)
+    winningNumDivEl.appendChild(winningNum);
+    winningNumDivEl.className = 'winningNumber';
+    document.getElementById('mainArt').appendChild(winningNumDivEl)
 }
 
 //will need to figure how many to display and start .shift() to remove from beginning of array (oldest numbers)
