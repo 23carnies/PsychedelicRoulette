@@ -41,7 +41,7 @@ div {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 4px double whitesmoke;
+    border: 4px double rgb(245, 245, 245);
     border-radius: 15px;
 }
 
@@ -49,6 +49,7 @@ image {
     max-width: 200px;
 }
 
+/*make backgrounds gradients?*/
 #hank {
     grid-column-start: 2;
     background-color: rgb(139, 6, 139);
