@@ -35,115 +35,9 @@ article {
     grid-template-rows: 2fr; */
 }
 /*  ROULETTE WHEEL SECTION BEGINS   */
-#wheel {
-    position: relative;
-    border: 15px solid #9900FF;
-    border-radius: 50%;
-    background-color: black;
-    overflow: hidden;
-    width: 400px;
-    height: 400px;
-    box-shadow: 2px 2px 4px rgb(125, 248, 2);
-}
-
-#sp0 { 
-    top: 0;
-    left: 0;
-    background-color: cornflowerblue;
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-}
-#spoke32 {
-    top: 0;
-    left: 25%;
-    background-color: chartreuse;
-    clip-path: polygon(100% 0, 0 0, 0100%);
-}
-#spoke15 {
-    top: 0;
-    left: 25%;
-    background-color: #FF0099;
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
-}
-#spoke19 {
-    top: 25%;
-    left: 25%;
-    background-color: chartreuse;
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
-}
-#spoke4 {
-    top: 25%;
-    left: 25%;
-    background-color: #FF0099;
-    clip-path: polygon(100% 100%, 00, 0 100%);
-}
-#spoke21 {
-    top: 50%;
-    left: 50%;
-    background-color:chartreuse;
-    clip-path: polygon(100% 100%, 100% 0, 0 100%);
-}
-#spoke2 {
-    top: 50%;
-    left: 50%;
-    background-color: #FF0099;
-    clip-path: polygon(0 100%, 100% 0, 0 0);
-}
-#spoke25 {
-    top: 50%;
-    left: 0;
-    background-color: chartreuse;
-    clip-path: polygon(0 100%, 100% 100%, 0 0);
-}
-#spoke17 {
-    top: 50%;
-    left: 0;
-    background-color: #FF0099;
-}
-#spoke34 {
-    top: 25%;
-    left: 0;
-    background-color: chartreuse;
-}
-#spoke6 {
-    top: 25%;
-    left: 0;
-    background-color: #FF0099;
-
-}
-#spoke27 {
-    background-color: chartreuse;
-
-}
-#spoke13{
-    background-color: #FF0099;
-
-}
-#spoke26 {
-    background-color: #7fff00;
-
-
-}
-#spoke11 {
-    background-color: #FF0099;
-
-}
-#spoke30 {
-    background-color: chartreuse;
-
-}
-
-
-.spoke {
-    list-style-type: none;
-    position: absolute;
-    width: 50%;
-    height: 50%;    
-}
-
-/* Wheel */
 img {
     display: block;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     height: 400px;
@@ -167,16 +61,13 @@ img {
 @keyframes spin{
     100%{-webkit-transform: rotate(360deg);}
 }
-
+/* End of Wheel */
 
 
 /* Betting Board Begins */
 #numBoard {
     display: flex;
     flex-flow: row wrap;
-    /* display: grid;
-    grid-template-columns: 40px auto 40px;
-    grid-template-rows: 120px 80px; */
     background-color: transparent;
     width: 585px;
     height: 210px;
@@ -189,9 +80,8 @@ img {
     flex-flow: column-reverse wrap;
     width: 500px;
     height: 120px;
-    grid-column: 2/span 1;
-    grid-row: 0/span 1;
 }
+
 #sq0 {
     height: 120px;
     width: 40px;
@@ -296,7 +186,7 @@ img {
 #currentBets {
     display: flex;
     height: 75px;
-    width: 400px;
+    width: 300px;
     justify-content: center;
 }
 
@@ -318,6 +208,7 @@ img {
 
 .displayNums {
     margin: 15px;
+    font-size: 20px;
     font-weight: 700;
     border-radius: 15px;
     background: rgb(131,58,180);
