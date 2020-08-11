@@ -1,6 +1,6 @@
 //  Questions to answer
 //      how many places can you play at once
-//      how to split circle into 37 pieces in css
+//      ✅how to split circle into 37 pieces in css--you dont!
 //      how to light up circle in iteration (one section after the other)
 //     ✅ how to add chip to place on board
 //     ✅ how to write a game readme
@@ -20,7 +20,7 @@
 /*      Pseudocode      */
 // 1. ✅set html, css, js basics
 // 2. ✅set css numbers board
-// 3. set css circle for spinner
+// 3. ✅set css circle for spinner
 //        multi colored wheel with numbers
 // 4. set play button  needed??
 // 5. ✅set spin button
@@ -32,10 +32,10 @@
 //      $20:13, $20:2:1(second row or by color) etc
 
 // 10. ✅set id for each section of square board
-// 11. set classes for colors of the wheel(or ids for each piece?)
+// 11. ✅set classes for colors of the wheel(or ids for each piece?)
 // 12. add event listener to wheel targeting id 
 
-// set transform-function rotate for wheel 
+// set transform-function rotate for wheel ✅
 //     --oh the math here
 
 
@@ -61,8 +61,8 @@
 
 //2. ✅Define State variables
 //    what does the app need to remember throughout the game?
-//        --prev called numbers
-//        --total $$ player has
+//        --prev called numbers✅
+//        --total $$ player has✅
 //        --bet amount
 //    use the wireframes/userstories/pseudocode to determine what state needs to be tracked
 //          set the base state of the board (start of game)
@@ -89,10 +89,10 @@
 //          DETERMINE THE BET
 //          INCREASE BET ON SQUARE
 
-//          DISPLAY CURRENT BETS    could there be an arrow up down here to change the amount of bet per square???
+//         ✅ DISPLAY CURRENT BETS    could there be an arrow up down here to change the amount of bet per square???
         //noon monday. it displays the displayBets array. need to convert to user appropriate info
         //so. loop through the array, if # is 0-36, just remove the 'sq' in front of the number. --so i need this to give me a new array and display that one
-        //if the # is 37-39 change to 'Col 1, Col2, Col3'
+        //if the # is 37-39 change to 'Col 1, Col2, Col3'=> fix this 
         //if its one of the outside bets:::
         //something else, no idea just yet
 
@@ -316,4 +316,108 @@
     // let rec42Thrd = [25,26,27,28,29,30,31,32,33,34,35,36];
 
 
+    // #wheel {
+    //     position: relative;
+    //     border: 15px solid #9900FF;
+    //     border-radius: 50%;
+    //     background-color: black;
+    //     overflow: hidden;
+    //     width: 400px;
+    //     height: 400px;
+    //     box-shadow: 2px 2px 4px rgb(125, 248, 2);
+    // }
     
+    // #sp0 { 
+    //     top: 0;
+    //     left: 0;
+    //     background-color: cornflowerblue;
+    //     clip-path: polygon(100% 0, 0 0, 100% 100%);
+    // }
+    // #spoke32 {
+    //     top: 0;
+    //     left: 25%;
+    //     background-color: chartreuse;
+    //     clip-path: polygon(100% 0, 0 0, 0100%);
+    // }
+    // #spoke15 {
+    //     top: 0;
+    //     left: 25%;
+    //     background-color: #FF0099;
+    //     clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    // }
+    // #spoke19 {
+    //     top: 25%;
+    //     left: 25%;
+    //     background-color: chartreuse;
+    //     clip-path: polygon(100% 0, 0 0, 100% 100%);
+    // }
+    // #spoke4 {
+    //     top: 25%;
+    //     left: 25%;
+    //     background-color: #FF0099;
+    //     clip-path: polygon(100% 100%, 00, 0 100%);
+    // }
+    // #spoke21 {
+    //     top: 50%;
+    //     left: 50%;
+    //     background-color:chartreuse;
+    //     clip-path: polygon(100% 100%, 100% 0, 0 100%);
+    // }
+    // #spoke2 {
+    //     top: 50%;
+    //     left: 50%;
+    //     background-color: #FF0099;
+    //     clip-path: polygon(0 100%, 100% 0, 0 0);
+    // }
+    // #spoke25 {
+    //     top: 50%;
+    //     left: 0;
+    //     background-color: chartreuse;
+    //     clip-path: polygon(0 100%, 100% 100%, 0 0);
+    // }
+    // #spoke17 {
+    //     top: 50%;
+    //     left: 0;
+    //     background-color: #FF0099;
+    // }
+    // #spoke34 {
+    //     top: 25%;
+    //     left: 0;
+    //     background-color: chartreuse;
+    // }
+    // #spoke6 {
+    //     top: 25%;
+    //     left: 0;
+    //     background-color: #FF0099;
+    
+    // }
+    // #spoke27 {
+    //     background-color: chartreuse;
+    
+    // }
+    // #spoke13{
+    //     background-color: #FF0099;
+    
+    // }
+    // #spoke26 {
+    //     background-color: #7fff00;
+    
+    
+    // }
+    // #spoke11 {
+    //     background-color: #FF0099;
+    
+    // }
+    // #spoke30 {
+    //     background-color: chartreuse;
+    
+    // }
+    
+    // .spoke {
+    //     list-style-type: none;
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 50%;    
+    // }
+    
+        

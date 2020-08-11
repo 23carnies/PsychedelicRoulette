@@ -13,6 +13,7 @@ const groupBets = {
 //multiple bets ?! oh geez, how to know which bet is the winning number??
 let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [], displayBets= [];
 let betChip = 50;
+let markChip = 'W';
 
 
 
@@ -29,15 +30,8 @@ const winningNumDivEl = document.getElementById('winningNumDiv');
 
 
 /*-------------Event Listeners-------------*/
-    //why wont these work when i try to call all the functions inside one event listener
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
-// insideBetsBox.addEventListener('click', placeInsideBetChips);
-// insideBetsBox.addEventListener('click', displayCurrentBets);
-
-
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
-// outsideBetsBox.addEventListener('click', placeOustideBetChips);
-// outsideBetsBox.addEventListener('click', displayCurrentBets);
 spinEl.addEventListener('click', render);
 //spinEl.addEventListener('click', spinWheel);
 
@@ -49,16 +43,16 @@ function init(){
     playerTotal = 1000;
     playerNumber = [];
     //clear board
-    //clear current bets
+    displayBets = [];
     //clear winning number div
     //clear prev winners
+    winningNumDivEl.innerHTML = '';
     displayPlayerTotal();
 }
 
 /*-------------Handle Clicks For Bets-------------*/
 function handleInsideBetsClick(e){
     let squareIndex = parseInt(e.target.id.replace('sq', ''));
-    // console.log(squareIndex);
     playerInsideBets.push(squareIndex);
     placeInsideBetChips(e);
     displayCurrentBets();
@@ -66,7 +60,6 @@ function handleInsideBetsClick(e){
 }
 function handleOutsideBetsClick(e){
     let recIndex = parseInt(e.target.id.replace('rec', ''));
-    //console.log(recIndex);
     playerOutsideBets.push(recIndex);
     placeOustideBetChips(e);
     displayCurrentBets();
@@ -74,67 +67,52 @@ function handleOutsideBetsClick(e){
 }
 
 /*-------------Add Chips to Board-------------*/
+
 function placeInsideBetChips(e){
-    let insideId = e.target.getAttribute('id');
-    let chip = document.createElement('div');
+    insideId = e.target.getAttribute('id');
+    let chip = document.createElement('p');
     let chipText = document.createTextNode(`${betChip}`);
     chip.appendChild(chipText);
-    chip.className = 'chip'
+    chip.className = 'chipStyle'
     document.getElementById(insideId).appendChild(chip);
     displayBets.push(insideId);
     playerTotal -= 50;
-    //console.log(insideId)
+    return (insideId);
 }
 
-//if second click is on the chip (not the rest of the space in the square) it's an error
 function placeOustideBetChips(e){
-    let outsideId = e.target.getAttribute('id');
-    //strip out the rec for display info
-    let outChip = document.createElement('div');
+    outsideId = e.target.getAttribute('id');
+    let outsideIdEl = document.getElementById(outsideId);
+    let outChip = document.createElement('p');
     let outChipText = document.createTextNode(`${betChip}`);
     outChip.appendChild(outChipText);
-    outChip.className = 'chip';
-    document.getElementById(outsideId).appendChild(outChip);
+    outChip.className = 'chipStyle';
+    outsideIdEl.appendChild(outChip);
     displayBets.push(outsideId);
     playerTotal -= 50;
-    //console.log(outsideId);
+    return (outsideId);
+}
+
+function clearBoard(){
+    document.getElementById(outsideId).className = 'clear';
+    console.log(document.getElementById(outsideId).className)
 }
 
 function onBet(){
     //for every chip that is put out, playerTotal should decrease by 50
 }
 
-function increaseBetOnSquare(){
-
+function markWinningNumber(){
+    let mark = `sq${winner}`;
+    let squareMarkEl = document.getElementById(mark);
+    let markSq = document.createElement('p')
+    let markSqText = document.createTextNode(`${markChip}`)
+    markSq.appendChild(markSqText);
+    markSq.className = 'winMarkerStyle';
+    squareMarkEl.appendChild(markSq);
+    console.log(mark)
+    
 }
-
-
-
-
-// function replaceStringBets(displayBets,x){
-//     displayBets = x.split('');
-//    if (displayBets.length > 4) {
-//        displayBets.splice(0,3);
-//    } else {
-//        displayBets.splice(0,2);
-//     } 
-//     console.log(displayBets);
-//    return displayBets.join('');
-// }
-// function replaceStringBets(){
-//     for(let i=0;i<displayBets.length;i++){
-//         displayBets[i].replace(/[^0-9\.]+/g, '');
-//     } console.log(displayBets)
-// }
-// function replaceStringBets(x){
-//    displayBets = x.split('');
-//    if (displayBets.length > 4) {
-//        displayBets.splice(0,3);
-//    } else {
-//        displayBets.splice(0,2);
-//    } return displayBets.join('');
-//    console.log(displayBets);
-// }
 
 /*-------------Wheel Spin-------------*/
 function spinWheel(){
@@ -149,8 +127,10 @@ function render(){
     displayPreviousWinningNums();
     displayPlayerTotal();
     shiftFromPrevWinners();
-
-    //setTimeout(clearBoard, 15000);
+    displayCurrentBets();
+    markWinningNumber();
+    //clearBoard();
+    //setTimeout(clearBoard, 3000);
 }
 
 
@@ -162,14 +142,14 @@ function displayCurrentBets(){
     displayBetsDiv.appendChild(betsDisplay);
     betsDisplay.className = 'displayNums';
     currentBetEl.appendChild(betsDisplay);
-    console.log(displayBets)
-    //return newdisplayBets
+    //console.log(displayBets)
 }
 
 function getWinningNumber(){
     winner = (Math.floor(Math.random()*37));
     displayWinningNum();
     previousNums.push(winner);
+    return winner;
 }
 
 //still cant get the old number to leave before the new number arrives
@@ -259,11 +239,7 @@ function determineOutsideWins(winner){
 
 
 
-// function clearBoard(outsideId, insideId){
-//     document.getElementById(outsideId).removeChild(outChip);
-//     document.getElementById(insideId).removeChild(chip);
-//     //console.log(insideId, outsideId)
-// }
+
 
 
 
