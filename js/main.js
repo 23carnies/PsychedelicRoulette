@@ -99,6 +99,9 @@ function placeOustideBetChips(e){
 
 function clearBoard(){
     let chips = document.querySelectorAll('p')
+    setInterval(function() {
+        chips.style.display = (chips.style.display == 'chipStyle' ? '' : '');
+    }, 1500);
     chips.forEach((chip)=> {
         chip.className = 'clear';
         // console.log(chip)

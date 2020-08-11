@@ -9,7 +9,7 @@ body {
     background-color: rgb(61, 58, 58);
     height: 100vh;  
     margin: 0 auto;  
-    
+    font-size: 16px;
 }
 
 h1 {
@@ -27,7 +27,10 @@ h2 {
     font-family: 'Asset', cursive;
     text-align: center;
     margin: 1% 0;
+}
 
+#mainContent {
+    display: none;
 }
 
 article {
@@ -51,21 +54,21 @@ image {
 
 /*make backgrounds gradients?*/
 #hank {
-    grid-column-start: 2;
+    grid-column-start: 1;
     background-color: rgb(139, 6, 139);
 }
 
 #deke {
-    grid-column-start: 3;
+    grid-column-start: 2;
     background-color: yellowgreen;
 }
 
 #geneva {
-    grid-column-start: 4;
+    grid-column-start: 3;
     background-color: tomato;
 }
 #alex {
-    grid-column-start: 5;
+    grid-column-start: 4;
     background-color: orange;
 }
 
@@ -81,4 +84,47 @@ span {
     color: whitesmoke;
     text-align: center;
     padding: 10px;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    padding: 100px;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.overlay-content > h2 {
+    font-size: 3em;
+}
+
+.overlay-content{
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+    color: rgb(226, 223, 223);
+    width: 100%;
+    background-color: rgb(233, 12, 12);
+}
+
+.overlay-content > p {
+    font-size: 2em;
+    line-height: 200%;
+    padding: 1em;
+}
+
+.overlay-content > button {
+    margin: 20px;
+    display: block;
+    padding: 20px;
+    background-color: rgb(226, 223, 22);
+    color: rgb(0, 0, 0)
+    border: 2px double rgb(0, 0, 0);
+    border-radius: 8px;
+    font-size: 2em;
+    font-weight: 700;
 }

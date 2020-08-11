@@ -103,3 +103,6 @@ Psycedelic Roulette Wheel adapted from [DLPNG](https://dlpng.com/png/6391825)
 
 A huge thanks to David Gilbertson for an awesome ELI5 on the maths of a circle [here](https://medium.com/hackernoon/a-simple-pie-chart-in-svg-dbdd653b6936).
 
+Warning template from [Wikipedia](https://en.wikipedia.org/wiki/Template:Seizure_warning).
+
+Big thanks to Rahul Giri for his lesson in [full screen overlays](https://www.youtube.com/watch?v=qLhBcHO3qtM).
