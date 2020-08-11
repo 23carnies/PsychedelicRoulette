@@ -70,6 +70,8 @@ function handleOutsideBetsClick(e){
 
 function placeInsideBetChips(e){
     insideId = e.target.getAttribute('id');
+    let insideIdEl = document.getElementById(insideId);
+    insideIdEl.innerHTML = '';
     let chip = document.createElement('p');
     let chipText = document.createTextNode(`${betChip}`);
     chip.appendChild(chipText);
@@ -83,20 +85,42 @@ function placeInsideBetChips(e){
 function placeOustideBetChips(e){
     outsideId = e.target.getAttribute('id');
     let outsideIdEl = document.getElementById(outsideId);
+    // outsideIdEl.innerHTML = ''
     let outChip = document.createElement('p');
     let outChipText = document.createTextNode(`${betChip}`);
     outChip.appendChild(outChipText);
     outChip.className = 'chipStyle';
     outsideIdEl.appendChild(outChip);
-    displayBets.push(outsideId);
+    //displayBets.push(outsideId);
     playerTotal -= 50;
     return (outsideId);
 }
+//in 1-18, 19-36, orange, maybe green, if there is a child, change fontsize down
+
 
 function clearBoard(){
-    document.getElementById(outsideId).className = 'clear';
-    console.log(document.getElementById(outsideId).className)
-}
+    let chips = document.querySelectorAll('p')
+    chips.forEach((chip)=> {
+        chip.className = 'clear';
+        console.log(chip)
+    }) 
+}    
+
+
+
+
+
+
+                    function displayCurrentBets(){
+                        let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
+                        currentBetEl.innerHTML = `Current Bets</br>`;
+                        let displayBetsDiv = document.createElement('p');
+                        let betsDisplay = document.createTextNode(`${newdisplayBets}`);
+                        displayBetsDiv.appendChild(betsDisplay);
+                        betsDisplay.className = 'displayNums';
+                        currentBetEl.appendChild(betsDisplay);
+                        //console.log(displayBets)
+                    }
 
 function onBet(){
     //for every chip that is put out, playerTotal should decrease by 50
@@ -130,20 +154,16 @@ function render(){
     displayCurrentBets();
     markWinningNumber();
     //clearBoard();
-    //setTimeout(clearBoard, 3000);
+    setTimeout(clearBoard, 3000);
 }
 
 
-function displayCurrentBets(){
-    let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
-    currentBetEl.innerHTML = `Current Bets</br>`;
-    let displayBetsDiv = document.createElement('p');
-    let betsDisplay = document.createTextNode(`${newdisplayBets}`);
-    displayBetsDiv.appendChild(betsDisplay);
-    betsDisplay.className = 'displayNums';
-    currentBetEl.appendChild(betsDisplay);
-    //console.log(displayBets)
-}
+
+
+
+    
+    
+
 
 function getWinningNumber(){
     winner = (Math.floor(Math.random()*37));
