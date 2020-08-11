@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+}
+
+body {
+    background-color: rgb(61, 58, 58);
+    height: 100vh;  
+    margin: 0 auto;  
+    
+}
+
+h1 {
+    font-family: 'Asset', cursive;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    /* color: rgb(232,4,22); */
+    background: transparent;
+    color: linear-gradient(90deg, rgba(232,4,22,1) 6%, rgba(29,253,226,0.9374124649859944) 50%, rgba(252,248,13,1) 100%);
+}
+
+h2 {
+    font-family: 'Asset', cursive;
+    text-align: center;
+    margin: 1% 0;
+
+}
+
+article {
+    display: grid;
+    grid-template-columns: 4fr;
+    grid-template-rows: 1fr;
+}
+
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 4px double whitesmoke;
+    border-radius: 15px;
+}
+
+image {
+    max-width: 200px;
+}
+
+#hank {
+    grid-column-start: 2;
+    background-color: rgb(139, 6, 139);
+}
+
+#deke {
+    grid-column-start: 3;
+    background-color: yellowgreen;
+}
+
+#geneva {
+    grid-column-start: 4;
+    background-color: tomato;
+}
+#alex {
+    grid-column-start: 5;
+    background-color: orange;
+}
+
+p {
+    max-width: 200px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+span {
+    font-weight: bold;
+    color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+}
