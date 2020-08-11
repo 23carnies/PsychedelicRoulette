@@ -70,8 +70,8 @@ function handleOutsideBetsClick(e){
 
 function placeInsideBetChips(e){
     insideId = e.target.getAttribute('id');
-    let insideIdEl = document.getElementById(insideId);
-    insideIdEl.innerHTML = '';
+    // let insideIdEl = document.getElementById(insideId);
+    // insideIdEl.innerHTML = '';
     let chip = document.createElement('p');
     let chipText = document.createTextNode(`${betChip}`);
     chip.appendChild(chipText);
@@ -91,7 +91,6 @@ function placeOustideBetChips(e){
     outChip.appendChild(outChipText);
     outChip.className = 'chipStyle';
     outsideIdEl.appendChild(outChip);
-    //displayBets.push(outsideId);
     playerTotal -= 50;
     return (outsideId);
 }
@@ -102,29 +101,23 @@ function clearBoard(){
     let chips = document.querySelectorAll('p')
     chips.forEach((chip)=> {
         chip.className = 'clear';
-        console.log(chip)
+        // console.log(chip)
     }) 
-}    
+    displayBets = [];
+    displayCurrentBets();
+}   
 
 
-
-
-
-
-                    function displayCurrentBets(){
-                        let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
-                        currentBetEl.innerHTML = `Current Bets</br>`;
-                        let displayBetsDiv = document.createElement('p');
-                        let betsDisplay = document.createTextNode(`${newdisplayBets}`);
-                        displayBetsDiv.appendChild(betsDisplay);
-                        betsDisplay.className = 'displayNums';
-                        currentBetEl.appendChild(betsDisplay);
-                        //console.log(displayBets)
-                    }
-
-function onBet(){
-    //for every chip that is put out, playerTotal should decrease by 50
+function displayCurrentBets(){
+    let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
+    currentBetEl.innerHTML = `Current Bets</br>`;
+    let displayBetsDiv = document.createElement('p');
+    let betsDisplay = document.createTextNode(`${newdisplayBets}`);
+    displayBetsDiv.appendChild(betsDisplay);
+    betsDisplay.className = 'displayNums';
+    currentBetEl.appendChild(betsDisplay);
 }
+
 
 function markWinningNumber(){
     let mark = `sq${winner}`;
