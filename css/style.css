@@ -7,8 +7,8 @@
 
 body {
     background-color: rgb(61, 58, 58);
-    height: 100vh;  
-    margin: 0 auto;  
+    height: 100vh;
+    margin: 0 auto;
 }
 
 h1 {
@@ -18,18 +18,18 @@ h1 {
     margin-bottom: .5%;
     /* color: rgb(232,4,22); */
     background: transparent;
-    color: linear-gradient(90deg, rgba(232,4,22,1) 6%, rgba(29,253,226,0.9374124649859944) 50%, rgba(252,248,13,1) 100%);
+    color: linear-gradient(90deg, rgba(232, 4, 22, 1) 6%, rgba(29, 253, 226, 0.9374124649859944) 50%, rgba(252, 248, 13, 1) 100%);
 }
 
 article {
     /* max-width: 1000px; */
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     flex-wrap: wrap;
     /* display: grid; */
     height: 100vh;
-    margin: 0;   
+    margin: 0;
     /* text-align: center; */
     /* grid-template-columns: auto;
     grid-template-rows: 2fr; */
@@ -52,15 +52,24 @@ img {
 }
 
 /* Keyframes */
-@-webkit-keyframes spin{
-    100%{-webkit-transform: rotate(360deg);}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
-@-moz-keyframes spin{
-    100%{-webkit-transform: rotate(360deg);}
+
+@-moz-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
-@keyframes spin{
-    100%{-webkit-transform: rotate(360deg);}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
+
 /* End of Wheel */
 
 
@@ -92,7 +101,7 @@ img {
     background-color: rgb(157, 0, 255);
 }
 
-#sq0 > div {
+#sq0>div {
     transform: rotate(-90deg)
 }
 
@@ -161,6 +170,7 @@ img {
     border: none;
     background-color: transparent;
 }
+
 /* Betting Board Ends */
 
 /* Display Info Div */
@@ -204,8 +214,8 @@ img {
     padding-left: 10px;
     font-size: 25px;
     align-items: center;
-    background: rgb(235,76,118);
-    background: linear-gradient(0deg, rgba(235,76,118,1) 25%, rgba(183,249,69,1) 88%);
+    background: rgb(235, 76, 118);
+    background: linear-gradient(0deg, rgba(235, 76, 118, 1) 25%, rgba(183, 249, 69, 1) 88%);
 }
 
 #prevNumbers {
@@ -213,8 +223,8 @@ img {
     height: 75px;
     width: 300px;
     justify-content: center;
-    background: rgb(232,4,22);
-    background: linear-gradient(90deg, rgba(232,4,22,1) 6%, rgba(29,253,226,0.9374124649859944) 50%, rgba(252,248,13,1) 100%);
+    background: rgb(232, 4, 22);
+    background: linear-gradient(90deg, rgba(232, 4, 22, 1) 6%, rgba(29, 253, 226, 0.9374124649859944) 50%, rgba(252, 248, 13, 1) 100%);
 }
 
 .displayNums {
@@ -222,8 +232,8 @@ img {
     font-size: 20px;
     font-weight: 700;
     border-radius: 15px;
-    background: rgb(131,58,180);
-    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(84,253,29,0.9374124649859944) 63%, rgba(252,138,69,1) 100%);
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(84, 253, 29, 0.9374124649859944) 63%, rgba(252, 138, 69, 1) 100%);
     box-shadow: 2px 2px 4px rgb(125, 248, 2);
 }
 
@@ -233,8 +243,8 @@ img {
     padding: 18px;
     border: 2px ridge white;
     border-radius: 15px;
-    background: rgb(244,7,207);
-    background: radial-gradient(circle, rgba(244,7,207,1) 0%, rgba(20,142,69,0.7659) 100%);
+    background: rgb(244, 7, 207);
+    background: radial-gradient(circle, rgba(244, 7, 207, 1) 0%, rgba(20, 142, 69, 0.7659) 100%);
     box-shadow: 2px 2px 4px rgb(125, 248, 2);
     font-weight: 700;
     font-size: 24px;
@@ -247,8 +257,8 @@ img {
     width: 25px;
     border-radius: 50%;
     border: 1px solid rgb(54, 13, 21);
-    background: rgb(63,94,251);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
     color: white;
     font-size: 15px;
     text-align: center;
@@ -284,6 +294,7 @@ img {
     h1 {
         margin: 0;
     }
+
     img {
         height: 300px;
         width: 300px;
@@ -291,22 +302,16 @@ img {
 }
 
 
-@media only screen and (max-width: 767.9) {
+@media only screen and (max-width: 767.9) {}
 
-}
+@media only screen and (max-width: 991.9) {}
 
-@media only screen and (max-width: 991.9){
+@media only screen and (min-width: 1200) {}
 
-}
-
-@media only screen and (min-width: 1200){
-
-}
-
-@media only screen and (min-width: 1600){
+@media only screen and (min-width: 1600) {
     body {
         height: 1000px;
         overflow-x: hidden;
     }
 
-} 
+}
