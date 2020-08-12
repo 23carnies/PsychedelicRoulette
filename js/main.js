@@ -7,7 +7,19 @@ const groupBets = {
     rec46Grn: [1,3,5,7,9,12,16,18,19,21,25,27,30,32,34,36]
 }
 
-
+/*-------------Audio-------------*/
+const big10k = new Audio('audio/bigWinner10k.m4a');
+const color100 = new Audio('audio/colorUp100.m4a');
+const color200 = new Audio('audio/colorUp200.m4a');
+const color500 = new Audio('audio/colorUp500.m4a');
+const color1000 = new Audio('audio/colorUp1000.m4a');
+const goodLuck = new Audio('audio/goodLuckEverybody.m4a');
+const handsOff = new Audio('audio/handOffTable.m4a');
+const headOff = new Audio('audio/headOffTable.m4a');
+const noMore = new Audio('audio/noMoreBets.m4a');
+const placeBets = new Audio('audio/placeYourBets.m4a');
+const round = new Audio('audio/roundAndRound.m4a');
+const winnerChicken = new Audio('audio/winnerChickenDinner.m4a');
 
 /*-------------State Variables-------------*/
 //multiple bets ?! oh geez, how to know which bet is the winning number??
@@ -100,15 +112,16 @@ function placeOustideBetChips(e){
 function clearBoard(){
     let chips = document.querySelectorAll('p')
     setInterval(function() {
-        chips.style.display = (chips.style.display == 'chipStyle' ? '' : '');
-    }, 1500);
+    //     chips.style.display = (chips.style.display == 'chipStyle' ? '' : '');
+    // }, 1500);
     chips.forEach((chip)=> {
         chip.className = 'clear';
         // console.log(chip)
     }) 
     displayBets = [];
     displayCurrentBets();
-}   
+})  
+} 
 
 
 function displayCurrentBets(){
@@ -130,13 +143,19 @@ function markWinningNumber(){
     markSq.appendChild(markSqText);
     markSq.className = 'winMarkerStyle';
     squareMarkEl.appendChild(markSq);
-    console.log(mark)
-    
 }
 
-/*-------------Wheel Spin-------------*/
-function spinWheel(){
-
+/*-------------Play Sounds-------------*/
+function playSounds(){
+    if (playerTotal === 10000){
+        setTimeout(() => {big10k.play()}, 2500);
+    }
+    if (playerTotal > 1600){
+        setTimeout(() => {color200}, 2000);
+    }
+    if (playerTotal > 3500){
+        setTimeout(() => {color500}, 2000);
+    }
 }
 
 /*-------------Display Info Functions-------------*/
