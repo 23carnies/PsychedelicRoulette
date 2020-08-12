@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychedelic Roulette</title>
+    <link href="https://fonts.googleapis.com/css2?family=Asset&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script> 
+</head>
+
+<body>
+    <h1 class="animate__zoomInUp">Psychedelic Roulette</h1>
+    <article id="mainArt">
+        <img src="resources/rouletteWheelColorsFull.png" class="rotate" alt="European Roulette Wheel in bright colors">
+        <div id="displayBox" class="displayInfo">
+            <div id="prevNumbers" class="displayNums">Previous Winners</br></div>
+            <div id="currentBets" class="displayNums">Current Bets</br></div>
+            <div id="total" class="displayNums">Total $</div>
+            <button id="spin">SPIN</button>
+            <div id="winningNumDiv"></div>
+        </div>
+        <div id="numBoard">
+            <div id="insideBets">
+                <div id="sq0"><div>0</div></div>   
+                <div class="square neon-green" id="sq1">1</div>
+                <div class="square neon-orange" id="sq2">2</div>
+                <div class="square neon-green" id="sq3">3</div>
+                <div class="square neon-orange" id="sq4">4</div>
+                <div class="square neon-green" id="sq5">5</div>
+                <div class="square neon-orange" id="sq6">6</div>
+                <div class="square neon-green" id="sq7">7</div>
+                <div class="square neon-orange" id="sq8">8</div>
+                <div class="square neon-green" id="sq9">9</div>
+                <div class="square neon-orange" id="sq10">10</div>
+                <div class="square neon-orange" id="sq11">11</div>
+                <div class="square neon-green" id="sq12">12</div>
+                <div class="square neon-orange" id="sq13">13</div>
+                <div class="square neon-orange" id="sq14">14</div>
+                <div class="square neon-orange" id="sq15">15</div>
+                <div class="square neon-green" id="sq16">16</div>
+                <div class="square neon-orange" id="sq17">17</div>
+                <div class="square neon-green" id="sq18">18</div>
+                <div class="square neon-green" id="sq19">19</div>
+                <div class="square neon-orange" id="sq20">20</div>
+                <div class="square neon-green" id="sq21">21</div>
+                <div class="square neon-orange" id="sq22">22</div>
+                <div class="square neon-orange" id="sq23">23</div>
+                <div class="square neon-orange" id="sq24">24</div>
+                <div class="square neon-green" id="sq25">25</div>
+                <div class="square neon-orange" id="sq26">26</div>
+                <div class="square neon-green" id="sq27">27</div>
+                <div class="square neon-orange" id="sq28">28</div>
+                <div class="square neon-orange" id="sq29">29</div>
+                <div class="square neon-green" id="sq30">30</div>
+                <div class="square neon-orange" id="sq31">31</div>
+                <div class="square neon-green" id="sq32">32</div>
+                <div class="square neon-orange" id="sq33">33</div>
+                <div class="square neon-green" id="sq34">34</div>
+                <div class="square neon-orange" id="sq35">35</div>
+                <div class="square neon-green" id="sq36">36</div>
+                <div class="square neon-cyan" id="sq37">2:1</div>
+                <div class="square neon-cyan" id="sq38">2:1</div>
+                <div class="square neon-cyan" id="sq39">2:1</div>
+            </div>
+            <div id="outsideBets">
+                <div class="square" id="space"></div>
+                <div class="outsideRec neon-pink" id="rec40">1st 12</div>
+                <div class="outsideRec neon-yellow" id="rec41">2nd 12</div>
+                <div class="outsideRec neon-pink" id="rec42">3rd 12</div>
+                <div class="square" id="space"></div>
+                <div class="square" id="space"></div>
+                <div class="outsideSq neon-yellow" id="rec43">1 to 18</div>
+                <div class="outsideSq neon-pink" id="rec44">EVEN</div>
+                <div class="outsideSq neon-orange" id="rec45">ORANGE</div>
+                <div class="outsideSq neon-green" id="rec46">GREEN</div>
+                <div class="outsideSq neon-pink" id="rec47">ODD</div>
+                <div class="outsideSq neon-yellow" id="rec48">19 to 36</div>
+                <div class="square" id="space"></div>
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>
