@@ -6,28 +6,26 @@ const groupBets = {
     rec45Org: [2,4,6,8,10,11,13,14,15,17,20,22,23,24,26,28,29,31,33,35],
     rec46Grn: [1,3,5,7,9,12,16,18,19,21,25,27,30,32,34,36]
 }
+const markChip = 'W';
+
 
 /*-------------Audio-------------*/
-const big10k = new Audio('audio/bigWinner10k.m4a');
-const color100 = new Audio('audio/colorUp100.m4a');
-const color200 = new Audio('audio/colorUp200.m4a');
-const color500 = new Audio('audio/colorUp500.m4a');
-const color1000 = new Audio('audio/colorUp1000.m4a');
-const goodLuck = new Audio('audio/goodLuckEverybody.m4a');
-const handsOff = new Audio('audio/handOffTable.m4a');
-const headOff = new Audio('audio/headOffTable.m4a');
-const noMore = new Audio('audio/noMoreBets.m4a');
-const placeBets = new Audio('audio/placeYourBets.m4a');
-const round = new Audio('audio/roundAndRound.m4a');
-const winnerChicken = new Audio('audio/winnerChickenDinner.m4a');
+// const big10k = new Audio('audio/bigWinner10k.m4a');
+// const color100 = new Audio('audio/colorUp100.m4a');
+// const color200 = new Audio('audio/colorUp200.m4a');
+// const color500 = new Audio('audio/colorUp500.m4a');
+// const color1000 = new Audio('audio/colorUp1000.m4a');
+// const goodLuck = new Audio('audio/goodLuckEverybody.m4a');
+// const handsOff = new Audio('audio/handOffTable.m4a');
+// const headOff = new Audio('audio/headOffTable.m4a');
+// const noMore = new Audio('audio/noMoreBets.m4a');
+// const placeBets = new Audio('audio/placeYourBets.m4a');
+// const round = new Audio('audio/roundAndRound.m4a');
+// const winnerChicken = new Audio('audio/winnerChickenDinner.m4a');
 
 /*-------------State Variables-------------*/
-//multiple bets ?! oh geez, how to know which bet is the winning number??
 let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [], displayBets= [];
 let betChip = 50;
-let markChip = 'W';
-
-
 
 /*-------------Cached Refernce Elements-------------*/
 const insideBetsBox = document.getElementById('insideBets');
@@ -38,23 +36,27 @@ const prevNumsEl = document.getElementById('prevNumbers');
 const currentBetEl = document.getElementById('currentBets');
 const winningNumDivEl = document.getElementById('winningNumDiv');
 
-
-
-
 /*-------------Event Listeners-------------*/
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 spinEl.addEventListener('click', render);
-//spinEl.addEventListener('click', spinWheel);
-
 
 /*-------------Functions-------------*/
 init();
 
+function restart(){
+    if (playerTotal === 0){
+        //display message
+        playerTotal = 1000;
+        clearBoard();
+
+    }
+}
+
 function init(){
     playerTotal = 1000;
     playerNumber = [];
-    //clear board
+    clearBoard();
     displayBets = [];
     //clear winning number div
     //clear prev winners
@@ -79,11 +81,8 @@ function handleOutsideBetsClick(e){
 }
 
 /*-------------Add Chips to Board-------------*/
-
 function placeInsideBetChips(e){
     insideId = e.target.getAttribute('id');
-    // let insideIdEl = document.getElementById(insideId);
-    // insideIdEl.innerHTML = '';
     let chip = document.createElement('p');
     let chipText = document.createTextNode(`${betChip}`);
     chip.appendChild(chipText);
@@ -106,8 +105,10 @@ function placeOustideBetChips(e){
     playerTotal -= 50;
     return (outsideId);
 }
-//in 1-18, 19-36, orange, maybe green, if there is a child, change fontsize down
 
+function checkMinimumBets(){
+    //when hitting spin, if insideBets array has <2 items or same for outside, alert, must play at least 
+}
 
 function clearBoard(){
     let chips = document.querySelectorAll('p')
@@ -116,13 +117,13 @@ function clearBoard(){
     // }, 1500);
     chips.forEach((chip)=> {
         chip.className = 'clear';
-        // console.log(chip)
     }) 
-    displayBets = [];
-    displayCurrentBets();
+    // document.getElementById('winningNumDiv').innerHTML = '';
 })  
+displayBets = [];
+displayCurrentBets();
+winningNumDivEl.innerHTML = '';
 } 
-
 
 function displayCurrentBets(){
     let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
@@ -133,7 +134,6 @@ function displayCurrentBets(){
     betsDisplay.className = 'displayNums';
     currentBetEl.appendChild(betsDisplay);
 }
-
 
 function markWinningNumber(){
     let mark = `sq${winner}`;
@@ -146,66 +146,55 @@ function markWinningNumber(){
 }
 
 /*-------------Play Sounds-------------*/
-function playSounds(){
-    if (playerTotal === 10000){
-        setTimeout(() => {big10k.play()}, 2500);
-    }
-    if (playerTotal > 1600){
-        setTimeout(() => {color200}, 2000);
-    }
-    if (playerTotal > 3500){
-        setTimeout(() => {color500}, 2000);
-    }
-}
+// function playSounds(){
+//     if (playerTotal === 10000){
+//         setTimeout(() => {big10k.play()}, 2500);
+//     }
+//     if (playerTotal > 1600){
+//         setTimeout(() => {color200.play()}, 2000);
+//     }
+//     if (playerTotal > 3500){
+//         setTimeout(() => {color500.play()}, 2000);
+//     }
+// }
 
 /*-------------Display Info Functions-------------*/
 function render(){
     getWinningNumber();
+    displayPreviousWinningNums();
     determineInsideWins();
     determineOutsideWins();
-    displayPreviousWinningNums();
     displayPlayerTotal();
-    shiftFromPrevWinners();
     displayCurrentBets();
     markWinningNumber();
-    //clearBoard();
-    setTimeout(clearBoard, 3000);
+    setTimeout(clearBoard, 4000);
+    shiftFromPrevWinners();
+    //playSounds();
 }
-
-
-
-
-
     
-    
-
-
 function getWinningNumber(){
     winner = (Math.floor(Math.random()*37));
-    displayWinningNum();
     previousNums.push(winner);
+    displayWinningNum();
     return winner;
 }
 
-//still cant get the old number to leave before the new number arrives
 function displayWinningNum(){
     winningNumDivEl.innerHTML = '';
     let winningNum = document.createTextNode(`${winner}`);
     winningNumDivEl.appendChild(winningNum);
     winningNumDivEl.className = 'winningNumber', 'animate__bounceInDown';
-    document.getElementById('mainArt').appendChild(winningNumDivEl)
+    document.getElementById('displayBox').appendChild(winningNumDivEl)
 }
 
-
-//will need to figure how many to display and start .shift() to remove from beginning of array (oldest numbers)
-//is appending entire array each click...need to just add the newest number
 function displayPreviousWinningNums(){
     prevNumsEl.innerHTML = `Previous Winners </br>`;
-    let prevNumPTag = document.createElement('p');
+    let prevNumPTag = document.createElement('div');
     let prevNumsDisp = document.createTextNode(`${previousNums}`);
     prevNumPTag.appendChild(prevNumsDisp);
     prevNumsDisp.className = 'displayNums';
     prevNumsEl.appendChild(prevNumsDisp);
+    console.log(prevNumsDisp)
 }
 
 function shiftFromPrevWinners(){
@@ -224,7 +213,6 @@ function displayPlayerTotal() {
 }
 
 /*-------------Payouts-------------*/
-/* not 100% about the math here. Will playerTotal add all 4 contingencies if necessary?*/
 function determineInsideWins(){
     if (playerInsideBets.includes(winner)){
         playerTotal += (36 * parseInt(betChip));

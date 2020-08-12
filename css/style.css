@@ -15,14 +15,14 @@ h1 {
     font-family: 'Asset', cursive;
     text-align: center;
     margin-top: 3%;
-    margin-bottom: 2%;
+    margin-bottom: .5%;
     /* color: rgb(232,4,22); */
     background: transparent;
     color: linear-gradient(90deg, rgba(232,4,22,1) 6%, rgba(29,253,226,0.9374124649859944) 50%, rgba(252,248,13,1) 100%);
 }
 
 article {
-    max-width: 1000px;
+    /* max-width: 1000px; */
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -37,13 +37,12 @@ article {
 
 /*  ROULETTE WHEEL SECTION BEGINS   */
 img {
-    display: block;
-    position: relative;
-    top: 0;
-    left: 0;
+    /* display: block; */
+    /* position: relative; */
+    /* top: 0; */
+    /* left: 0; */
     height: 400px;
     width: 400px;
-
 }
 
 .rotate {
@@ -109,13 +108,6 @@ img {
     font-weight: 700;
 }
 
-/* .neon-orange::onclick {
-    color: rgb(255, 102, 0);
-}
-.neon-green::onclick{
-    color: rgb(0, 255, 0);
-} */
-
 .neon-green {
     background-color: rgb(0, 255, 0);
 }
@@ -169,24 +161,30 @@ img {
     border: none;
     background-color: transparent;
 }
-
 /* Betting Board Ends */
 
 /* Display Info Div */
-.displayInfo {
+#displayBox {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Winning Number */
+#winningNumDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px;
+    height: 125px;
+    border-radius: 15px;
+    margin: 20px;
+}
+
 .winningNumber {
-    width: 200px;
-    height: 200px;
     background: transparent;
-    color: radial-gradient(circle, rgba(238,174,228,1) 0%, rgba(20,38,142,0.76590) 100%);
-    color: rgb(9, 121, 173);
+    color: rgb(247, 6, 146);
     font-family: 'Asset', cursive;
     font-size: 100px;
 }
@@ -208,7 +206,6 @@ img {
     align-items: center;
     background: rgb(235,76,118);
     background: linear-gradient(0deg, rgba(235,76,118,1) 25%, rgba(183,249,69,1) 88%);
-
 }
 
 #prevNumbers {
@@ -246,7 +243,6 @@ img {
 
 .chipStyle {
     position: absolute;
-
     height: 25px;
     width: 25px;
     border-radius: 50%;
@@ -280,7 +276,11 @@ img {
     display: none;
 }
 
-@media only screen and (max-width: 500px) {
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 575.9px) {
     h1 {
         margin: 0;
     }
@@ -289,3 +289,24 @@ img {
         width: 300px;
     }
 }
+
+
+@media only screen and (max-width: 767.9) {
+
+}
+
+@media only screen and (max-width: 991.9){
+
+}
+
+@media only screen and (min-width: 1200){
+
+}
+
+@media only screen and (min-width: 1600){
+    body {
+        height: 1000px;
+        overflow-x: hidden;
+    }
+
+} 
