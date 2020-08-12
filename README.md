@@ -81,7 +81,7 @@ Deke Stratton - 32 year old associate physics professor. After a marathon 62 hou
 
 Geneva Freemont - 42 year old pharmaceutical sales rep. Heard the head buyer of a major hospital chain likes roulette at this casino, is lying in wait for her mark. Also, hates gambling.
 
-Alex  the cat - It's a cat, you know you want to be the cat
+Alex  the cat - It's a cat; you know you want to be the cat.
 
 
 ### Technologies Implemented:

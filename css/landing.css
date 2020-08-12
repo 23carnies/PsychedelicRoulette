@@ -14,19 +14,20 @@ body {
 
 h1 {
     font-family: 'Asset', cursive;
+    font-size: 3em;
     font-weight: 700;
     text-align: center;
     margin-top: 2%;
     margin-bottom: 1%;
-    /* color: rgb(232,4,22); */
-    background: transparent;
-    color: linear-gradient(90deg, rgba(232,4,22,1) 6%, rgba(29,253,226,0.9374124649859944) 50%, rgba(252,248,13,1) 100%);
+    color: rgb(232, 198, 4);
 }
 
 h2 {
     font-family: 'Asset', cursive;
+    font-size: 2.5em;
     text-align: center;
-    margin: 1% 0;
+    margin: 2% 0;
+    color: rgb(12, 233, 12);
 }
 
 #mainContent {
@@ -34,22 +35,21 @@ h2 {
 }
 
 article {
+    width: 100vh;
     display: grid;
+    justify-content: center;
     grid-template-columns: 4fr;
     grid-template-rows: 1fr;
 }
 
 div {
+    max-width: 600px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     border: 4px double rgb(245, 245, 245);
     border-radius: 15px;
-}
-
-image {
-    max-width: 200px;
 }
 
 /*make backgrounds gradients?*/
@@ -60,20 +60,20 @@ image {
 
 #deke {
     grid-column-start: 2;
-    background-color: yellowgreen;
+    background-color: rgb(154, 205, 50);
 }
 
 #geneva {
     grid-column-start: 3;
-    background-color: tomato;
+    background-color: rgb(255, 99, 71);
 }
 #alex {
     grid-column-start: 4;
-    background-color: orange;
+    background-color: rgb(255, 165, 0);
 }
 
 p {
-    max-width: 200px;
+    max-width: 300px;
     color: white;
     text-align: center;
     padding: 10px;
@@ -91,6 +91,7 @@ span {
     display: none;
     position: fixed;
     padding: 100px;
+    margin: 100px;
     top: 0;
     left: 0;
     z-index: 10;
@@ -127,4 +128,32 @@ span {
     border-radius: 8px;
     font-size: 2em;
     font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+    article {
+        grid-template-columns: 2fr;
+        grid-template-rows: 2fr;
+    }
+    #hank {
+        grid-column-start: auto;
+        grid-row-start: auto;
+    }
+    #deke {
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+    #geneva {
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+    #alex {
+        grid-column-start: 2;
+        grid-row-start: 2;
+    }
+
+    /* Media Query Overlay */
+    .overlay-content > h2 {
+        font-size: 2em;
+    }
 }

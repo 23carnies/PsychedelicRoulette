@@ -6,10 +6,10 @@ const closeWarningEl = document.getElementById('closeWarning');
 
 window.addEventListener('load', openWarning);
 closeWarningEl.addEventListener('click', closeWarning);
-hankEl.addEventListener('click', );
-dekeEl.addEventListener('click', );
-genevaEl.addEventListener('click', );
-alexEl.addEventListener('click', );
+// hankEl.addEventListener('click', );
+// dekeEl.addEventListener('click', );
+// genevaEl.addEventListener('click', );
+// alexEl.addEventListener('click', );
 
 
 function openWarning(){
@@ -17,7 +17,7 @@ function openWarning(){
 }
 function closeWarning(){
     document.getElementById('overlay').style.display = 'none';
-    document.getElementById('mainContent').style.display = 'block';
+    document.getElementById('mainContent').style.display = 'flex';
 }
 function sayHello(){
 
