@@ -14,9 +14,9 @@ body {
 h1 {
     font-family: 'Asset', cursive;
     text-align: center;
-    margin-top: 3%;
-    margin-bottom: .5%;
-    /* color: rgb(232,4,22); */
+    margin: 1% auto;
+    color: rgb(189, 60, 9);
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
     background: transparent;
     color: linear-gradient(90deg, rgba(232, 4, 22, 1) 6%, rgba(29, 253, 226, 0.9374124649859944) 50%, rgba(252, 248, 13, 1) 100%);
 }
@@ -25,10 +25,10 @@ article {
     /* max-width: 1000px; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     /* display: grid; */
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0;
     /* text-align: center; */
     /* grid-template-columns: auto;
@@ -286,11 +286,82 @@ img {
     display: none;
 }
 
+.overlay {
+    display: none;
+}
+
 
 
 /* Media Queries */
+@media only screen and (max-width: 399.9px) {
+    .overlay {
+        display: block;
+        position: absolute;
+        background-color: rgb(175, 179, 171);
+        background-image: url('./resources/landscapeView.png');
+        background-repeat: repeat-y;
+        width: 100%;
+        height: 100vh;
+        z-index: 10;
+        text-align: center;
+        font-size: 18px;
+    }
+    .overlay > img {
+        margin-top: 25%;
+        width: 100%;
+    }
+}
 
-@media only screen and (max-width: 575.9px) {
+@media only screen and (min-width 400px) and (max-width: 767.8px) {
+    h1 {
+        font-size: 50%;
+    }
+    img {
+        width: 250px;
+    }
+    #displayBox {
+        flex-flow: row-reverse wrap;
+    }
+    .mediaQueryBox {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr;
+        grid-template-rows: auto;
+    }
+    #spin {
+        font-size: 18px;
+        width: 50%;
+    }
+    #prevNumbers,  {
+        width: 60%;
+        height: 50px;
+        flex-basis: auto;
+    }
+    #currentBets {
+        width: 60%;
+        height: 50px;
+    }
+
+    #total {
+        font-size: 18px;
+        height: 50px;
+        flex-basis: auto;
+    }
+    .displayNums {
+        font-size: 14px;
+    }
+    #winningNumDiv {
+        width: 110px;
+        height: 80px;
+    }
+    .winningNumber {
+        font-size: 40px;
+    }
+
+}
+
+
+@media only screen and (min-width: 767.9px) and (max-width: 991.9) {
     h1 {
         margin: 0;
     }
@@ -302,16 +373,26 @@ img {
 }
 
 
-@media only screen and (max-width: 767.9) {}
+@media only screen and (max-width: 991.9px) {}
 
-@media only screen and (max-width: 991.9) {}
+@media only screen and (min-width: 1200px) {}
 
-@media only screen and (min-width: 1200) {}
-
-@media only screen and (min-width: 1600) {
-    /* body {
+@media only screen and (min-width: 1600px) {
+    body {
         height: 1000px;
-        overflow-x: hidden;
-    } */
+    }
+
+    h1 {
+        margin: 2% auto;
+        font-size: 50px;
+    }
+
+    #numBoard {
+        margin: 7% 2%;
+    }
+
+    img {
+        margin-top: 2%;
+    }
 
 }

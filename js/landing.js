@@ -24,8 +24,3 @@ document.getElementById('alex').addEventListener('click', () => alex.play());
 
 
 
-function sayHello(){
-
-}
-
-

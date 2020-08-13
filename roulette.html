@@ -12,19 +12,26 @@
 </head>
 
 <body>
+    <div class="overlay">
+        <p>For optimal gaming, please turn your screen to landscape.</p>
+        <img src="./resources/landscapeView.png" width="200px" alt="Icon of phone changing from portrait to landscape view">
+    </div>
     <h1 class="animate__anmiated animate__zoomInUp">Psychedelic Roulette</h1>
     <article id="mainArt">
         <img src="resources/rouletteWheelColorsFull.png" class="rotate" alt="European Roulette Wheel in bright colors">
         <div id="displayBox" class="displayInfo">
+            <div class="mediaQueryBox">
             <div id="prevNumbers" class="displayNums">Previous Winners</br></div>
-            <div id="currentBets" class="displayNums">Current Bets</br></div>
-            <div id="total" class="displayNums">Total $</div>
+                <div id="currentBets" class="displayNums">Current Bets</br></div>
+            </div>
+                <div id="total" class="displayNums">Total $</div>
+                
             <button id="spin" class="animate__animated animate__headShake">SPIN</button>
             <div id="winningNumDiv"></div>
         </div>
         <div id="numBoard">
             <div id="insideBets">
-                <div id="sq0"><div>0</div></div>   
+                <div id="sq0">0</div>   
                 <div class="square neon-green" id="sq1">1</div>
                 <div class="square neon-orange" id="sq2">2</div>
                 <div class="square neon-green" id="sq3">3</div>

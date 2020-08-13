@@ -42,14 +42,14 @@ const winningNumDivEl = document.getElementById('winningNumDiv');
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 spinEl.addEventListener('click', spinWheel);
-spinEl.addEventListener('mouseover', () => noMore.play());
+spinEl.addEventListener('mouseover', noMore.play());
 
 /*-------------Functions-------------*/
 init();
 
 function restart() {
     if (playerTotal === 0) {
-        setTimeout(() => { playerTotal = 1000 }, 3000);
+        // setTimeout(() => { playerTotal = 1000 }, 3000);
         clearBoard();
         head.play();
         setTimeout(() => {init(), 5000});
@@ -114,7 +114,8 @@ function placeOustideBetChips(e) {
 
 function spinWheel() {
     ball.play();
-    setTimeout(() => { render(), 10000 });
+    render();
+    noMoreBetsCall();
 }
 
 function minAndMaxBets() {
@@ -133,7 +134,9 @@ function clearBoard() {
     displayBets = [];
     displayCurrentBets();
     winningNumDivEl.innerHTML = '';
-    setTimeout(()=>{placeBets.play()}, 2000);
+    playerInsideBets = [];
+    playerOutsideBets = [];
+    setTimeout(()=>{placeBets.play()}, 3000);
 }
 
 function displayCurrentBets() {
@@ -159,16 +162,22 @@ function markWinningNumber() {
 /*-------------Play Sounds-------------*/
 function playSounds() {
     if (playerTotal === 10000) {
-        setTimeout(() => { big10k.play() }, 2500);
+        setTimeout(() => { big10k.play() }, 4000);
     }
-    if (playerTotal > 1600) {
-        setTimeout(() => { color200.play() }, 2000);
+    if (playerTotal > 1600 && playerTotal < 3000) {
+        setTimeout(() => { color200.play() }, 4000);
     }
-    if (playerTotal > 3500) {
-        setTimeout(() => { color500.play() }, 2000);
+    if (playerTotal > 3500 && playerTotal < 8000) {
+        setTimeout(() => { color500.play() }, 4000);
     }
     if (playerInsideBets.includes(winner)) {
-        winnerChicken.play()
+        setTimeout(() => {winnerChicken.play()}, 2000);
+    }
+}
+
+function noMoreBetsCall() {
+    if (displayBets.includes(winner) === false) {
+        noMore.play();
     }
 }
 
