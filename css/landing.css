@@ -7,7 +7,7 @@
 
 body {
     background-color: rgb(61, 58, 58);
-    height: 100vh;  
+    /* height: 100vh;   */
     margin: 0 auto;  
     font-size: 16px;
     display: flex;
@@ -17,17 +17,19 @@ body {
 
 h1 {
     font-family: 'Asset', cursive;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 700;
     text-align: center;
     margin-top: 2%;
     margin-bottom: 1%;
     color: rgb(232, 198, 4);
+    margin-block-start: .5em;
+    margin-block-end: 0;
 }
 
 h2 {
     font-family: 'Asset', cursive;
-    font-size: 2.5em;
+    font-size: 1.5em;
     text-align: center;
     margin: 2% 0;
     color: rgb(12, 233, 12);
@@ -38,14 +40,15 @@ h2 {
 }
 
 article {
-    width: 100vh;
-    display: grid;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    grid-template-columns: 4fr;
-    grid-template-rows: 1fr;
+    align-items: center;
 }
 
 div {
+    text-decoration: none;
     max-width: 600px;
     display: flex;
     flex-wrap: wrap;
@@ -55,38 +58,38 @@ div {
     border-radius: 15px;
 }
 
-/*make backgrounds gradients?*/
 #hank {
-    grid-column-start: 1;
-    background-color: rgb(139, 6, 139);
+    background-color: rgb(194, 7, 194);
 }
 
 #deke {
-    grid-column-start: 2;
     background-color: rgb(154, 205, 50);
 }
 
 #geneva {
-    grid-column-start: 3;
     background-color: rgb(255, 99, 71);
 }
 #alex {
-    grid-column-start: 4;
     background-color: rgb(255, 165, 0);
 }
 
 p {
     max-width: 300px;
-    color: white;
+    color: rgb(20, 20, 20);
     text-align: center;
     padding: 10px;
 }
 
-span {
+a, a:after, a:link {
     font-weight: bold;
     color: whitesmoke;
     text-align: center;
     padding: 10px;
+}
+
+a:hover {
+    font-size: 1.08em;
+    cursor: alias;
 }
 
 /* Overlay */
@@ -107,8 +110,6 @@ span {
 }
 
 .overlay-content{
-    position: relative;
-    top: 25%;
     width: 100%;
     text-align: center;
     margin-top: 2%;
@@ -135,26 +136,22 @@ span {
     font-weight: 700;
 }
 
+/* Media Queries */
 @media only screen and (max-width: 600px) {
     article {
-        grid-template-columns: 2fr;
-        grid-template-rows: 2fr;
+        
     }
     #hank {
-        grid-column-start: auto;
-        grid-row-start: auto;
+        
     }
     #deke {
-        grid-column-start: 2;
-        grid-row-start: 1;
+       
     }
     #geneva {
-        grid-column-start: 1;
-        grid-row-start: 2;
+        
     }
     #alex {
-        grid-column-start: 2;
-        grid-row-start: 2;
+       
     }
 
     /* Media Query Overlay */
