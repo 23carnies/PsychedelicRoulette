@@ -204,6 +204,7 @@ img {
     height: 75px;
     width: 300px;
     justify-content: center;
+    flex-wrap: wrap-reverse;
 }
 
 #total {

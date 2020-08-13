@@ -11,14 +11,12 @@ const markChip = 'W';
 
 /*-------------Audio-------------*/
 const big10k = new Audio('./audio/bigWinner10k.mp3');
-const color100 = new Audio('./audio/color100.mp3');
 const color200 = new Audio('./audio/colorUp200.mp3');
 const color500 = new Audio('./audio/colorUp500.mp3');
 const color1000 = new Audio('./audio/colorUp1000.mp3');
 const goodLuck = new Audio('./audio/goodLuckEverybody.mp3');
 const handsOff = new Audio('./audio/handOffTable.mp3');
 const headOff = new Audio('./audio/headOffTable.mp3');
-const noMore = new Audio('./audio/noMoreBets.mp3');
 const placeBets = new Audio('./audio/placeYourBets.mp3');
 const round = new Audio('./audio/roundAndRound.mp3');
 const winnerChicken = new Audio('./audio/winnerChickenDinner.mp3');
@@ -28,7 +26,7 @@ const chips = new Audio('./audio/chips.mp3');
 /*-------------State Variables-------------*/
 let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [], displayBets = [];
 let betChip = 50;
-let timerId;
+let timerIdRave;
 
 /*-------------Cached Refernce Elements-------------*/
 const insideBetsBox = document.getElementById('insideBets');
@@ -38,24 +36,21 @@ const spinEl = document.getElementById('spin');
 const prevNumsEl = document.getElementById('prevNumbers');
 const currentBetEl = document.getElementById('currentBets');
 const winningNumDivEl = document.getElementById('winningNumDiv');
-const bodyEl = document.getElementsByTagName('body');
+const bodyEl = document.querySelector('body');
+const divEl = document.querySelectorAll('div');
 
 /*-------------Event Listeners-------------*/
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 spinEl.addEventListener('click', spinWheel);
-//document.getElementById('numBoard').addEventListener('mouseleave', noMore.play());
 
 /*-------------Functions-------------*/
 init();
 
 function restart() {
     if (playerTotal === 0) {
-        head.play();
-        setTimeout(() => { playerTotal = 1000 }, 3000);
-        clearBoard();
-        //displayPlayerTotal();
-        //setTimeout(() => {init(), 5000});
+        headOff.play();
+        setTimeout(() => {init()}, 5000);
     }
 }
 
@@ -66,7 +61,6 @@ function init() {
     clearBoard();
     displayBets = [];
     winningNumDivEl.innerHTML = '';
-    // spinEl.disabled = false;
 
 }
 
@@ -119,7 +113,6 @@ function placeOustideBetChips(e) {
 
 function spinWheel() {
     spinEl.disabled = true;
-
     ball.play();
     setTimeout(()=> {render()}, 2000);
 }
@@ -136,9 +129,10 @@ function clearBoard() {
     displayBets = [];
     displayCurrentBets();
     winningNumDivEl.innerHTML = '';
+    returnFromRave();
     playerInsideBets = [];
     playerOutsideBets = [];
-    setTimeout(() => { clearInterval(timerId)}, 5000);
+    clearInterval(timerIdRave), 5000;
     //setTimeout(()=>{placeBets.play()}, 3000);
 }
 
@@ -150,7 +144,14 @@ function displayCurrentBets() {
     displayBetsDiv.appendChild(betsDisplay);
     betsDisplay.className = 'displayNums';
     currentBetEl.appendChild(betsDisplay);
+    // if (displayBets.length > 10){
+    //     let br = `</br>`;
+    //     displayBetsDiv.textContent(br);
+    //     displayBetsDiv.appendChild(br);
+    //     currentBetEl.appendChild(displayBetsDiv);
+    // }
 }
+
 
 function markWinningNumber() {
     let mark = `sq${winner}`;
@@ -165,13 +166,13 @@ function markWinningNumber() {
 /*-------------Play Sounds-------------*/
 function playSounds() {
     if (playerInsideBets.includes(winner)) {
-        timerId = setInterval(() => {raveMode()}, 150);
         setTimeout(() => {winnerChicken.play()}, 1000);
-    } else if (playerTotal === 10000) {
+        timerIdRave = setInterval(raveMode, 150);
+    } else if (playerTotal > 10000 && playerTotal < 12000) {
         setTimeout(() => { big10k.play() }, 4000);
-    } else if (playerTotal > 1600 && playerTotal < 3000) {
+    } else if (playerTotal > 1200 && playerTotal < 2000) {
         setTimeout(() => { color200.play() }, 4000);
-    } else if (playerTotal > 3500 && playerTotal < 8000) {
+    } else if (playerTotal > 2000 && playerTotal < 6000) {
         setTimeout(() => { color500.play() }, 4000);
     }
 }
@@ -188,8 +189,8 @@ function render() {
     setTimeout(clearBoard, 4000);
     shiftFromPrevWinners();
     playSounds();
-    restart();
     setTimeout(()=> {spinEl.disabled = false}, 3000);
+    restart();
 
 }
 
@@ -281,14 +282,14 @@ function determineOutsideWins(winner) {
     return playerTotal;
 }
 
-
+/*-------------Rave Mode-------------*/
 function raveMode(){
-    const elements = [bodyEl, insideBetsBox, outsideBetsBox, playerTotalEl, prevNumsEl, currentBetEl, winningNumDivEl];
-    for (let i=0; i<elements.length;i++){
+    const elements = [divEl, bodyEl, insideBetsBox, outsideBetsBox, playerTotalEl, prevNumsEl, currentBetEl, winningNumDivEl];
+    for (let i=elements.length -1;i>=0;i--){
         let r = Math.floor(Math.random()*256);
         let g = Math.floor(Math.random()*256);
         let b = Math.floor(Math.random()*256);
-            elements[i].style.color = '#'+r.toString(16)+g.toString(16)+b.toString(16);
+            elements[i].style.backgroundColor = '#'+r.toString(16)+g.toString(16)+b.toString(16);
         let r2 = Math.floor(Math.random()*256);
         let g2 = Math.floor(Math.random()*256);
         let b2 = Math.floor(Math.random()*256);
@@ -297,33 +298,10 @@ function raveMode(){
     console.log(elements)
 }
 
-
-
-
-// function colorCycle(){
-//     if (colorInterval) {
-//         clearInterval(colorInterval)
-//     }
-//     colorInterval = setInterval(rainbowFade, 5);
-// }
-// setInterval(function rainbowButton() {
-//     if(r > 0 && b == 0){ r--; g++; }
-//     if(g > 0 && r == 0){ g--; b++; }
-//     if(b > 0 && g == 0){ r++; b--; }
-//     rainbowBtn.style.backgroundColor =`rgb(${r},${g},${b})`;
-// },5)
-// function rainbowFade (){
-//     if(r > 0 && b == 0){ r--; g++; }
-//     if(g > 0 && r == 0){ g--; b++; }
-//     if(b > 0 && g == 0){ r++; b--; }
-//     document.body.style.backgroundColor =`rgb(${r},${g},${b})`;
-// }
-
-
-
-
-
-
-
-
+function returnFromRave(){
+    winningNumDivEl.style.backgroundColor = 'winningNumber';
+    bodyEl.style.backgroundColor =  'rgb(61, 58, 58)';
+    insideBetsBox.style.backgroundColor = 'transparent';
+    outsideBetsBox.style.backgroundColor = 'transparent';
+}
 
