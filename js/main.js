@@ -42,17 +42,17 @@ const winningNumDivEl = document.getElementById('winningNumDiv');
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 spinEl.addEventListener('click', spinWheel);
-spinEl.addEventListener('mouseover', noMore.play());
+//document.getElementById('numBoard').addEventListener('mouseleave', noMore.play());
 
 /*-------------Functions-------------*/
 init();
 
 function restart() {
     if (playerTotal === 0) {
-        // setTimeout(() => { playerTotal = 1000 }, 3000);
-        clearBoard();
         head.play();
-        setTimeout(() => {init(), 5000});
+        setTimeout(() => { playerTotal = 1000 }, 3000);
+        clearBoard();
+        //setTimeout(() => {init(), 5000});
     }
 }
 
@@ -115,11 +115,6 @@ function placeOustideBetChips(e) {
 function spinWheel() {
     ball.play();
     render();
-    noMoreBetsCall();
-}
-
-function minAndMaxBets() {
-    //when hitting spin, if insideBets array has <2 items or same for outside, alert, must play at least 
 }
 
 function clearBoard() {
@@ -136,7 +131,7 @@ function clearBoard() {
     winningNumDivEl.innerHTML = '';
     playerInsideBets = [];
     playerOutsideBets = [];
-    setTimeout(()=>{placeBets.play()}, 3000);
+    //dssetTimeout(()=>{placeBets.play()}, 3000);
 }
 
 function displayCurrentBets() {
@@ -172,12 +167,6 @@ function playSounds() {
     }
     if (playerInsideBets.includes(winner)) {
         setTimeout(() => {winnerChicken.play()}, 2000);
-    }
-}
-
-function noMoreBetsCall() {
-    if (displayBets.includes(winner) === false) {
-        noMore.play();
     }
 }
 
@@ -284,21 +273,40 @@ function determineOutsideWins(winner) {
     return playerTotal;
 }
 
-// function raveMode(){
-//     for (let i=0; i<elements.length;i++){
-//         let r = Math.floor(Math.random()*256);
-//         let g = Math.floor(Math.random()*256);
-//         let b = Math.floor(Math.random()*256);
-//             elements[i].style.color = '#'+r.toString(16)+g.toString(16)+b.toString(16);
-//         let r = Math.floor(Math.random()*256);
-//         let r = Math.floor(Math.random()*256);
-//         let r = Math.floor(Math.random()*256);
-//             elements[i].style.backgroundColor = '#'+r.toString(16)+g.toString(16)+b.toString(16);
+
+function raveMode(){
+    const elements = [insideBetsBox, outsideBetsBox, playerTotalEl, prevNumsEl, currentBetEl, winningNumDivEl];
+    for (let i=0; i<elements.length;i++){
+        let r = Math.floor(Math.random()*256);
+        let g = Math.floor(Math.random()*256);
+        let b = Math.floor(Math.random()*256);
+            elements[i].style.color = '#'+r.toString(16)+g.toString(16)+b.toString(16);
+        let r2 = Math.floor(Math.random()*256);
+        let g2 = Math.floor(Math.random()*256);
+        let b2 = Math.floor(Math.random()*256);
+            elements[i].style.backgroundColor = '#'+r.toString(16)+g.toString(16)+b.toString(16);
+    }
+}
+
+
+// function colorCycle(){
+//     if (colorInterval) {
+//         clearInterval(colorInterval)
 //     }
+//     colorInterval = setInterval(rainbowFade, 5);
 // }
-
-
-
+// setInterval(function rainbowButton() {
+//     if(r > 0 && b == 0){ r--; g++; }
+//     if(g > 0 && r == 0){ g--; b++; }
+//     if(b > 0 && g == 0){ r++; b--; }
+//     rainbowBtn.style.backgroundColor =`rgb(${r},${g},${b})`;
+// },5)
+// function rainbowFade (){
+//     if(r > 0 && b == 0){ r--; g++; }
+//     if(g > 0 && r == 0){ g--; b++; }
+//     if(b > 0 && g == 0){ r++; b--; }
+//     document.body.style.backgroundColor =`rgb(${r},${g},${b})`;
+// }
 
 
 

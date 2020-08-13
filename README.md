@@ -33,6 +33,10 @@ My husband introduced me to roulette on a vacation years ago. I fell in love wit
 * As a player, I should see my $TOTAL increase or decrease after each round of betting.
 * As a player, I should see PSYCHEDELIC MODE if I hit the winning number.
 
+### Screenshots
+![Screenshot of roulette game screen](resources/Game Screenshot.png) _Main Game Screen_
+
+![Screenshot of user stories page](resources/User Stories Screenshot.png) _Pick Your User Story Page_
 
 ### Wireframes:
 

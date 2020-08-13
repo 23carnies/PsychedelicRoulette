@@ -18,7 +18,6 @@ h1 {
     color: rgb(189, 60, 9);
     -webkit-text-stroke: 1px rgb(255, 255, 255);
     background: transparent;
-    color: linear-gradient(90deg, rgba(232, 4, 22, 1) 6%, rgba(29, 253, 226, 0.9374124649859944) 50%, rgba(252, 248, 13, 1) 100%);
 }
 
 article {
