@@ -311,7 +311,7 @@ img {
     }
 }
 
-@media only screen and (min-width 400px) and (max-width: 767.8px) {
+@media only screen and (min-width: 400px) and (max-width: 767.8px) {
     h1 {
         font-size: 50%;
     }
@@ -321,20 +321,13 @@ img {
     #displayBox {
         flex-flow: row-reverse wrap;
     }
-    .mediaQueryBox {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 2fr;
-        grid-template-rows: auto;
-    }
     #spin {
         font-size: 18px;
         width: 50%;
     }
-    #prevNumbers,  {
+    #prevNumbers  {
         width: 60%;
         height: 50px;
-        flex-basis: auto;
     }
     #currentBets {
         width: 60%;
@@ -371,18 +364,13 @@ img {
     }
 }
 
-
-@media only screen and (max-width: 991.9px) {}
-
-@media only screen and (min-width: 1200px) {}
-
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 1200px) {
     body {
         height: 1000px;
     }
 
     h1 {
-        margin: 2% auto;
+        margin: 4% auto;
         font-size: 50px;
     }
 

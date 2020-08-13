@@ -34,9 +34,9 @@ My husband introduced me to roulette on a vacation years ago. I fell in love wit
 * As a player, I should see PSYCHEDELIC MODE if I hit the winning number.
 
 ### Screenshots
-![Screenshot of roulette game screen](resources/Game Screenshot.png) _Main Game Screen_
+![Screenshot of roulette game screen](./resources/Game_Screenshot.png) _Main Game Screen_
 
-![Screenshot of user stories page](resources/User Stories Screenshot.png) _Pick Your User Story Page_
+![Screenshot of user stories page](./resources/User_Stories_Screenshot.png) _Pick Your User Story Page_
 
 ### Wireframes:
 
