@@ -42,7 +42,7 @@ const winningNumDivEl = document.getElementById('winningNumDiv');
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
 outsideBetsBox.addEventListener('click', handleOutsideBetsClick);
 spinEl.addEventListener('click', spinWheel);
-//spinEl.addEventListener('mouseover', () => noMore.play());
+spinEl.addEventListener('mouseover', () => noMore.play());
 
 /*-------------Functions-------------*/
 init();
@@ -133,7 +133,7 @@ function clearBoard() {
     displayBets = [];
     displayCurrentBets();
     winningNumDivEl.innerHTML = '';
-    //setTimeout(()=>{placeBets.play()}, 2000);
+    setTimeout(()=>{placeBets.play()}, 2000);
 }
 
 function displayCurrentBets() {
