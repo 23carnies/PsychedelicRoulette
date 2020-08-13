@@ -66,6 +66,8 @@ function init() {
     clearBoard();
     displayBets = [];
     winningNumDivEl.innerHTML = '';
+    // spinEl.disabled = false;
+
 }
 
 /*-------------Handle Clicks For Bets-------------*/
@@ -116,8 +118,10 @@ function placeOustideBetChips(e) {
 }
 
 function spinWheel() {
+    spinEl.disabled = true;
+
     ball.play();
-    render();
+    setTimeout(()=> {render()}, 2000);
 }
 
 function clearBoard() {
@@ -185,6 +189,8 @@ function render() {
     shiftFromPrevWinners();
     playSounds();
     restart();
+    setTimeout(()=> {spinEl.disabled = false}, 3000);
+
 }
 
 function getWinningNumber() {
@@ -286,7 +292,7 @@ function raveMode(){
         let r2 = Math.floor(Math.random()*256);
         let g2 = Math.floor(Math.random()*256);
         let b2 = Math.floor(Math.random()*256);
-            elements[i].style.backgroundColor = '#'+r.toString(16)+g.toString(16)+b.toString(16);
+            elements[i].style.backgroundColor = '#'+r2.toString(16)+g2.toString(16)+b2.toString(16);
     }
     console.log(elements)
 }
