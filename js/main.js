@@ -28,6 +28,7 @@ const chips = new Audio('./audio/chips.mp3');
 /*-------------State Variables-------------*/
 let winner, playerTotal, playerInsideBets = [], playerOutsideBets = [], previousNums = [], displayBets = [];
 let betChip = 50;
+let timerId;
 
 /*-------------Cached Refernce Elements-------------*/
 const insideBetsBox = document.getElementById('insideBets');
@@ -37,6 +38,7 @@ const spinEl = document.getElementById('spin');
 const prevNumsEl = document.getElementById('prevNumbers');
 const currentBetEl = document.getElementById('currentBets');
 const winningNumDivEl = document.getElementById('winningNumDiv');
+const bodyEl = document.getElementsByTagName('body');
 
 /*-------------Event Listeners-------------*/
 insideBetsBox.addEventListener('click', handleInsideBetsClick);
@@ -52,17 +54,18 @@ function restart() {
         head.play();
         setTimeout(() => { playerTotal = 1000 }, 3000);
         clearBoard();
+        //displayPlayerTotal();
         //setTimeout(() => {init(), 5000});
     }
 }
 
 function init() {
     playerTotal = 1000;
+    displayPlayerTotal();
     playerNumber = [];
     clearBoard();
     displayBets = [];
     winningNumDivEl.innerHTML = '';
-    displayPlayerTotal();
 }
 
 /*-------------Handle Clicks For Bets-------------*/
@@ -123,7 +126,7 @@ function clearBoard() {
         //     chips.style.display = (chips.style.display == 'chipStyle' ? '' : '');
         // }, 1500);
         chips.forEach((chip) => {
-            chip.className = 'clear';
+            chip.classList.add('animate__animated', 'animate__flash', setTimeout(()=> {chip.className = 'clear'}, 1200));
         })
     })
     displayBets = [];
@@ -131,7 +134,8 @@ function clearBoard() {
     winningNumDivEl.innerHTML = '';
     playerInsideBets = [];
     playerOutsideBets = [];
-    //dssetTimeout(()=>{placeBets.play()}, 3000);
+    setTimeout(() => { clearInterval(timerId)}, 5000);
+    //setTimeout(()=>{placeBets.play()}, 3000);
 }
 
 function displayCurrentBets() {
@@ -156,17 +160,15 @@ function markWinningNumber() {
 
 /*-------------Play Sounds-------------*/
 function playSounds() {
-    if (playerTotal === 10000) {
-        setTimeout(() => { big10k.play() }, 4000);
-    }
-    if (playerTotal > 1600 && playerTotal < 3000) {
-        setTimeout(() => { color200.play() }, 4000);
-    }
-    if (playerTotal > 3500 && playerTotal < 8000) {
-        setTimeout(() => { color500.play() }, 4000);
-    }
     if (playerInsideBets.includes(winner)) {
-        setTimeout(() => {winnerChicken.play()}, 2000);
+        timerId = setInterval(() => {raveMode()}, 150);
+        setTimeout(() => {winnerChicken.play()}, 1000);
+    } else if (playerTotal === 10000) {
+        setTimeout(() => { big10k.play() }, 4000);
+    } else if (playerTotal > 1600 && playerTotal < 3000) {
+        setTimeout(() => { color200.play() }, 4000);
+    } else if (playerTotal > 3500 && playerTotal < 8000) {
+        setTimeout(() => { color500.play() }, 4000);
     }
 }
 
@@ -182,6 +184,7 @@ function render() {
     setTimeout(clearBoard, 4000);
     shiftFromPrevWinners();
     playSounds();
+    restart();
 }
 
 function getWinningNumber() {
@@ -220,7 +223,7 @@ function displayPlayerTotal() {
     let totalPTag = document.createElement('p');
     let appTotal = document.createTextNode(`${playerTotal}`);
     totalPTag.appendChild(appTotal);
-    appTotal.className = 'displaNums';
+    appTotal.className = 'displayNums';
     playerTotalEl.appendChild(appTotal);
 }
 
@@ -228,7 +231,6 @@ function displayPlayerTotal() {
 function determineInsideWins() {
     if (playerInsideBets.includes(winner)) {
         playerTotal += (36 * parseInt(betChip));
-        //raveMode();
     }
     if (playerInsideBets.includes('37') && groupBets.sq37El.includes(winner)) {
         playerTotal += (3 * parseInt(betChip));
@@ -275,7 +277,7 @@ function determineOutsideWins(winner) {
 
 
 function raveMode(){
-    const elements = [insideBetsBox, outsideBetsBox, playerTotalEl, prevNumsEl, currentBetEl, winningNumDivEl];
+    const elements = [bodyEl, insideBetsBox, outsideBetsBox, playerTotalEl, prevNumsEl, currentBetEl, winningNumDivEl];
     for (let i=0; i<elements.length;i++){
         let r = Math.floor(Math.random()*256);
         let g = Math.floor(Math.random()*256);
@@ -286,7 +288,10 @@ function raveMode(){
         let b2 = Math.floor(Math.random()*256);
             elements[i].style.backgroundColor = '#'+r.toString(16)+g.toString(16)+b.toString(16);
     }
+    console.log(elements)
 }
+
+
 
 
 // function colorCycle(){
