@@ -198,22 +198,3 @@
 //      ✅make the wheel spin      https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate
 //      make the cash colorful, maybe change color somehow?? $rainbucks$
 //      see the robot croupier!
-
-
-
-// <a href="roulette.html" id="hank">
-//             <img src="https://robohash.org/Hank_Stern.png?set=set2" width="150" alt="Robot avatar from https://robohash.org/">
-//             <p><span>Hank Stern</span></br>63 year old retired construction worker. Came to Vegas with his life savings to live the easy life and is down to his last grand after 3 months.</p>
-//         </a>
-//         <a href="roulette.html" id="deke">
-//             <img src="https://robohash.org/DEKE_STRATTON.png" width="150" alt="Robot avatar from https://robohash.org/">
-//             <p><span>Deke Stratton</span></br>32 year old associate physics professor. After a marathon 62 hour session at the white board fell in to a catatonic state from which he emerged with a 'system' to "beat Vegas Roulette".</p>
-//         </a>
-//         <a href="roulette.html" id="geneva">
-//             <img src="https://robohash.org/female.png?set=set3?bgset=bg1" width="150" alt="Robot avatar from https://robohash.org/">
-//             <p><span>Geneva Freemont</span></br>42 year old pharmaceutical sales rep. Heard the head buyer of a major hospital chain likes roulette at this casino, is lying in wait for her mark. Also, hates gambling.</p>
-//         </a>
-//         <a id="alex" href="roulette.html">
-//             <img src="https://robohash.org/alex.png?set=set4" width="150" alt="Robot avatar from https://robohash.org/">
-//             <p><span>Alex the Cat</span></br>It's a cat; you know you want to be the cat.</p>
-//         </a>

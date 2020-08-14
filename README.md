@@ -49,14 +49,13 @@ _Wirefram of Mobile View_
 ![Mobile View Wireframe](https://i.imgur.com/3pP5FBS.jpg)
 ### How to Play Psychedelic Roulette:
 1. Player is given $1000 in $50 chips.
-2. Player must play $100 per spin.
-3. Player places at least 5 chips on the board.
-4. Player must bet the minimum to play inside the board (0-36). The player must also make the minimum bet to play the outside of the board (all other spaces).
-5. Press the spin button.
-6. The winning number pays 35 to 1.
-7. All column and dozen bets pay 2 to 1.
-8. All even/odd, red/black, low/high bets pay 1 to 1.
-9. Keep playing!
+2. Player places at least 5 chips on the board.
+3. Player must bet the minimum to play inside the board (0-36). The player must also make the minimum bet to play the outside of the board (all other spaces).
+4. Press the spin button.
+5. The winning number pays 35 to 1.
+6. All column and dozen bets pay 2 to 1.
+7. All even/odd, red/black, low/high bets pay 1 to 1.
+8. Keep betting!
 
 
 
@@ -70,6 +69,7 @@ _Wirefram of Mobile View_
 7. Make pieces of the board light up as well as the wheel
 8. See the ball spin around the wheel
 9. ~~Make the wheel actually spin~~
+10. Make 
 
 
 
