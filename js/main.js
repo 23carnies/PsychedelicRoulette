@@ -114,17 +114,34 @@ function placeOustideBetChips(e) {
     }
 }
 
+/*-------------Winning Number-------------*/
 function spinWheel() {
     spinEl.disabled = true;
     ball.play();
     setTimeout(()=> {render()}, 2000);
 }
 
+function getWinningNumber() {
+    winner = (Math.floor(Math.random() * 37));
+    previousNums.push(winner);
+    displayWinningNum();
+    return winner;
+}
+
+function markWinningNumber() {
+    let mark = `sq${winner}`;
+    let squareMarkEl = document.getElementById(mark);
+    let markSq = document.createElement('p')
+    let markSqText = document.createTextNode(`${markChip}`)
+    markSq.appendChild(markSqText);
+    markSq.className = 'winMarkerStyle';
+    squareMarkEl.appendChild(markSq);
+}
+
+/*-------------Clear Board-------------*/
 function clearBoard() {
     let chips = document.querySelectorAll('p')
     setInterval(function () {
-        //     chips.style.display = (chips.style.display == 'chipStyle' ? '' : '');
-        // }, 1500);
         chips.forEach((chip) => {
             chip.classList.add('animate__animated', 'animate__flash', setTimeout(()=> {chip.className = 'clear'}, 1200));
         })
@@ -137,35 +154,6 @@ function clearBoard() {
     playerOutsideBets = [];
     clearInterval(timerIdRave), 5000;
     //setTimeout(()=>{placeBets.play()}, 3000);
-}
-
-function displayCurrentBets() {
-    let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
-    currentBetEl.innerHTML = `Current Bets</br>`;
-    let displayBetsDiv = document.createElement('p');
-    let betsDisplay = document.createTextNode(`${newdisplayBets}`);
-    displayBetsDiv.appendChild(betsDisplay);
-    betsDisplay.className = 'displayNums';
-    currentBetEl.appendChild(betsDisplay);
-    if (displayBets.length > 10){
-        for (let i=0;i<displayBets.length;i++){
-            if (i === 10) {
-                let br = `{</br>}`
-                displayBets.push(br)
-            }
-        }
-    }
-}
-
-
-function markWinningNumber() {
-    let mark = `sq${winner}`;
-    let squareMarkEl = document.getElementById(mark);
-    let markSq = document.createElement('p')
-    let markSqText = document.createTextNode(`${markChip}`)
-    markSq.appendChild(markSqText);
-    markSq.className = 'winMarkerStyle';
-    squareMarkEl.appendChild(markSq);
 }
 
 /*-------------Play Sounds-------------*/
@@ -188,10 +176,10 @@ function render() {
     displayCurrentBets();
     getWinningNumber();
     markWinningNumber();
-    displayPreviousWinningNums();
     determineInsideWins();
     determineOutsideWins();
     displayPlayerTotal();
+    displayPreviousWinningNums();
     shiftFromPrevWinners();
     playSounds();
     restart();
@@ -199,11 +187,15 @@ function render() {
 
 }
 
-function getWinningNumber() {
-    winner = (Math.floor(Math.random() * 37));
-    previousNums.push(winner);
-    displayWinningNum();
-    return winner;
+function displayCurrentBets() {
+    let newdisplayBets = displayBets.map((str) => str.replace(/\D+/g, ''));
+    currentBetEl.innerHTML = `Current Bets</br>`;
+    let displayBetsDiv = document.createElement('p');
+    let betsDisplay = document.createTextNode(`${newdisplayBets}`);
+    displayBetsDiv.appendChild(betsDisplay);
+    betsDisplay.className = 'displayNums';
+    currentBetEl.appendChild(betsDisplay);
+    
 }
 
 function displayWinningNum() {
@@ -240,6 +232,8 @@ function displayPlayerTotal() {
 
 /*-------------Payouts-------------*/
 function determineInsideWins() {
+    console.log(playerInsideBets, playerTotal, winner)
+
     if (playerInsideBets.includes(winner)) {
         playerTotal += (36 * parseInt(betChip));
     }
@@ -255,7 +249,8 @@ function determineInsideWins() {
     return playerTotal;
 }
 
-function determineOutsideWins(winner) {
+function determineOutsideWins() {
+    console.log(playerOutsideBets, playerTotal, winner)
     if (playerOutsideBets.includes(40) && (winner >= 1 && winner <= 12)) {
         playerTotal += (3 * parseInt(betChip));
     }
