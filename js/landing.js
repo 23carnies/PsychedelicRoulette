@@ -21,6 +21,3 @@ document.getElementById('hank').addEventListener('click', () => hank.play());
 document.getElementById('deke').addEventListener('click', () => deke.play());
 document.getElementById('geneva').addEventListener('click', () => geneva.play());
 document.getElementById('alex').addEventListener('click', () => alex.play());
-
-
-

@@ -62,7 +62,6 @@ function init() {
     clearBoard();
     displayBets = [];
     winningNumDivEl.innerHTML = '';
-
 }
 
 /*-------------Handle Clicks For Bets-------------*/
@@ -73,6 +72,7 @@ function handleInsideBetsClick(e) {
     displayCurrentBets();
     return squareIndex;
 }
+
 function handleOutsideBetsClick(e) {
     let recIndex = parseInt(e.target.id.replace('rec', ''));
     playerOutsideBets.push(recIndex);
@@ -153,7 +153,7 @@ function clearBoard() {
     playerInsideBets = [];
     playerOutsideBets = [];
     clearInterval(timerIdRave), 5000;
-    //setTimeout(()=>{placeBets.play()}, 3000);
+    setTimeout(()=>{placeBets.play()}, 3000);
 }
 
 /*-------------Play Sounds-------------*/
@@ -195,7 +195,6 @@ function displayCurrentBets() {
     displayBetsDiv.appendChild(betsDisplay);
     betsDisplay.className = 'displayNums';
     currentBetEl.appendChild(betsDisplay);
-    
 }
 
 function displayWinningNum() {
@@ -232,8 +231,6 @@ function displayPlayerTotal() {
 
 /*-------------Payouts-------------*/
 function determineInsideWins() {
-    console.log(playerInsideBets, playerTotal, winner)
-
     if (playerInsideBets.includes(winner)) {
         playerTotal += (36 * parseInt(betChip));
     }
@@ -250,7 +247,6 @@ function determineInsideWins() {
 }
 
 function determineOutsideWins() {
-    console.log(playerOutsideBets, playerTotal, winner)
     if (playerOutsideBets.includes(40) && (winner >= 1 && winner <= 12)) {
         playerTotal += (3 * parseInt(betChip));
     }
@@ -302,4 +298,3 @@ function returnFromRave(){
     insideBetsBox.style.backgroundColor = 'transparent';
     outsideBetsBox.style.backgroundColor = 'transparent';
 }
-
