@@ -202,9 +202,9 @@ img {
 #currentBets {
     display: flex;
     height: 75px;
-    width: 300px;
+    width: 375px;
     justify-content: center;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
 }
 
 #total {

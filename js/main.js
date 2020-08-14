@@ -6,7 +6,8 @@ const groupBets = {
     rec45Org: [2, 4, 6, 8, 10, 11, 13, 14, 15, 17, 20, 22, 23, 24, 26, 28, 29, 31, 33, 35],
     rec46Grn: [1, 3, 5, 7, 9, 12, 16, 18, 19, 21, 25, 27, 30, 32, 34, 36]
 }
-const markChip = 'W';
+    const markChip = 'W';
+
 
 
 /*-------------Audio-------------*/
@@ -91,6 +92,7 @@ function placeInsideBetChips(e) {
         document.getElementById(insideId).appendChild(chip);
         displayBets.push(insideId);
         playerTotal -= 50;
+        displayPlayerTotal();
         chips.play();
         return (insideId);
     }
@@ -106,6 +108,7 @@ function placeOustideBetChips(e) {
         outChip.className = 'chipStyle';
         outsideIdEl.appendChild(outChip);
         playerTotal -= 50;
+        displayPlayerTotal();
         chips.play();
         return (outsideId);
     }
@@ -144,12 +147,14 @@ function displayCurrentBets() {
     displayBetsDiv.appendChild(betsDisplay);
     betsDisplay.className = 'displayNums';
     currentBetEl.appendChild(betsDisplay);
-    // if (displayBets.length > 10){
-    //     let br = `</br>`;
-    //     displayBetsDiv.textContent(br);
-    //     displayBetsDiv.appendChild(br);
-    //     currentBetEl.appendChild(displayBetsDiv);
-    // }
+    if (displayBets.length > 10){
+        for (let i=0;i<displayBets.length;i++){
+            if (i === 10) {
+                let br = `{</br>}`
+                displayBets.push(br)
+            }
+        }
+    }
 }
 
 
@@ -179,18 +184,18 @@ function playSounds() {
 
 /*-------------Display Info Functions-------------*/
 function render() {
+    setTimeout(()=> {spinEl.disabled = false}, 3000);
+    displayCurrentBets();
     getWinningNumber();
+    markWinningNumber();
     displayPreviousWinningNums();
     determineInsideWins();
     determineOutsideWins();
     displayPlayerTotal();
-    displayCurrentBets();
-    markWinningNumber();
-    setTimeout(clearBoard, 4000);
     shiftFromPrevWinners();
     playSounds();
-    setTimeout(()=> {spinEl.disabled = false}, 3000);
     restart();
+    setTimeout(clearBoard, 4000);
 
 }
 
@@ -216,7 +221,6 @@ function displayPreviousWinningNums() {
     prevNumPTag.appendChild(prevNumsDisp);
     prevNumsDisp.className = 'displayNums';
     prevNumsEl.appendChild(prevNumsDisp);
-    console.log(prevNumsDisp)
 }
 
 function shiftFromPrevWinners() {
@@ -239,44 +243,44 @@ function determineInsideWins() {
     if (playerInsideBets.includes(winner)) {
         playerTotal += (36 * parseInt(betChip));
     }
-    if (playerInsideBets.includes('37') && groupBets.sq37El.includes(winner)) {
+    if (playerInsideBets.includes(37) && groupBets.sq37El.includes(winner)) {
         playerTotal += (3 * parseInt(betChip));
     }
-    if (playerInsideBets.includes('38') && groupBets.sq38El.includes(winner)) {
+    if (playerInsideBets.includes(38) && groupBets.sq38El.includes(winner)) {
         playerTotal += (3 * parseInt(betChip));
     }
-    if (playerInsideBets.includes('39') && groupBets.sq39El.includes(winner)) {
+    if (playerInsideBets.includes(39) && groupBets.sq39El.includes(winner)) {
         playerTotal += (3 * parseInt(betChip));
     }
     return playerTotal;
 }
 
 function determineOutsideWins(winner) {
-    if (playerOutsideBets.includes('40') && (winner >= 1 && winner <= 12)) {
+    if (playerOutsideBets.includes(40) && (winner >= 1 && winner <= 12)) {
         playerTotal += (3 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('41') && (winner >= 13 && winner <= 24)) {
+    if (playerOutsideBets.includes(41) && (winner >= 13 && winner <= 24)) {
         playerTotal += (3 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('42') && (winner >= 25 && winner <= 36)) {
+    if (playerOutsideBets.includes(42) && (winner >= 25 && winner <= 36)) {
         playerTotal += (3 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('43') && (winner >= 1 && winner <= 18)) {
+    if (playerOutsideBets.includes(43) && (winner >= 1 && winner <= 18)) {
         playerTotal += (2 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('44') && winner % 2 === 0) {
+    if (playerOutsideBets.includes(44) && winner % 2 === 0) {
         playerTotal += (2 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('45') && groupBets.rec45Org.includes(winner)) {
+    if (playerOutsideBets.includes(45) && groupBets.rec45Org.includes(winner)) {
         playerTotal += (2 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('46') && groupBets.rec46Grn.includes(winner)) {
+    if (playerOutsideBets.includes(46) && groupBets.rec46Grn.includes(winner)) {
         playerTotal += (2 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('47') && winner % 2 !== 0) {
+    if (playerOutsideBets.includes(47) && winner % 2 !== 0) {
         playerTotal += (2 * parseInt(betChip));
     }
-    if (playerOutsideBets.includes('48') && (winner >= 19 && winner <= 36)) {
+    if (playerOutsideBets.includes(48) && (winner >= 19 && winner <= 36)) {
         playerTotal += (2 * parseInt(betChip));
     }
     return playerTotal;
@@ -295,7 +299,6 @@ function raveMode(){
         let b2 = Math.floor(Math.random()*256);
             elements[i].style.backgroundColor = '#'+r2.toString(16)+g2.toString(16)+b2.toString(16);
     }
-    console.log(elements)
 }
 
 function returnFromRave(){
