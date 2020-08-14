@@ -13,10 +13,6 @@
 * Credits
 
 
-## Click [here](http://psychedelic-roulette.surge.sh/) to play the game
-
-
-
 ### Objective
 To create an colorful, online version of an 18th century table game that has endured into the modern era.
 
@@ -115,3 +111,5 @@ Warning template from [Wikipedia](https://en.wikipedia.org/wiki/Template:Seizure
 Big thanks to Rahul Giri for his lesson in [full screen overlays](https://www.youtube.com/watch?v=qLhBcHO3qtM).
 
 Also, big thanks to Coding Snow and a great CSS animations [tutorial](https://www.youtube.com/watch?v=gNz-TZIuNwo).
+
+## Click [here](http://psychedelic-roulette.surge.sh/) to play the game
