@@ -89,7 +89,6 @@ Alex  the cat - It's a cat; you know you want to be the cat.
 * CSS
 * Javascript
 * Github
-* Git
 * Photoshop
 * Apple Voice Memos
 
@@ -109,6 +108,8 @@ Landscape view image from [KindPNG](https://www.kindpng.com/downpng/Twbxmo_pleas
 Warning template from [Wikipedia](https://en.wikipedia.org/wiki/Template:Seizure_warning).
 
 Neon color hex codes from [FashiionTrendsetter](https://www.fashiontrendsetter.com/content/color_trends/color-decoder/Color-Code-Neon.html)
+
+Asset and Lora fonts from [Google Fonts](https://fonts.google.com)
 
 Big thanks to Rahul Giri for his lesson in [full screen overlays](https://www.youtube.com/watch?v=qLhBcHO3qtM).
 
