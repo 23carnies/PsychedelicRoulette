@@ -13,7 +13,7 @@
 * Credits
 
 
-##Click [here](http://psychedelic-roulette.surge.sh/) to play the game
+## Click [here](http://psychedelic-roulette.surge.sh/) to play the game
 
 
 
