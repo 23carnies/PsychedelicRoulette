@@ -137,7 +137,7 @@ a:hover {
     font-weight: 700;
 }
 
-/* Media Queries */
+/* Media Queries */ 
 @media only screen and (max-width: 399.9px) {
     .overlay-content > h2 {
         font-size: 2em;

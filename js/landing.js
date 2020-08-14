@@ -1,4 +1,4 @@
-/* Warning Overlay */
+/* Warning Overlay */ 
 document.getElementById('closeWarning').addEventListener('click', closeWarning);
 window.addEventListener('load', openWarning);
 function openWarning(){
