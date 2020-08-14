@@ -298,3 +298,4 @@ function returnFromRave(){
     insideBetsBox.style.backgroundColor = 'transparent';
     outsideBetsBox.style.backgroundColor = 'transparent';
 }
+
